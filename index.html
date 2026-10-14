@@ -334,14 +334,25 @@ const STEPS = [
 
 const NEW = () => ({
   v:2, id:"V"+Date.now().toString(36).toUpperCase(),
-  f:{ date:new Date().toISOString().slice(0,10), tier:"Tier 2" },
+  f:{ date:new Date().toISOString().slice(0,10), tier:"Tier 2", customer:"" },
   t:{}, stock:{}, actions:[], prior:null, recv:false
 });
-/* Every Galvins branch. Add or remove a line and re-upload the file. */
-const BRANCH_LIST = ["Bassendean","Broome","Bunbury","Busselton","Clarkson","Darwin",
-  "Ellenbrook","Esperance","Geraldton","Karratha","Kelmscott","Kununurra","Mandurah",
-  "Nedlands","Newman","Osborne Park","Perth","Port Headland","Rockingham","Spearwood",
-  "Wangara","Welshpool","Willetton","Yanchep"];
+/* Every customer and its branches, read out of the state Basecamp boards.
+   The state is in the label because customer names are NOT unique — Williams
+   Building Supplies is in both NSW and QLD, and Cooks sits in the NSW project
+   with two Queensland stores. Add a customer or a branch here and re-upload. */
+const CUSTOMERS = [{"c":"Galvin's (WA)","b":["Bassendean","Broome","Bunbury","Busselton","Clarkson","Darwin","Ellenbrook","Esperance","Geraldton","Karratha","Kelmscott","Kununurra","Mandurah","Nedlands","Newman","Osborne Park","Perth","Port Headland","Rockingham","Spearwood","Wangara","Welshpool","Willetton","Yanchep"]},{"c":"Harris (VIC)","b":["Bayswater (HO)","Dandenong","Eltham","Epping","Hoppers Crossing","Melton","Pakenham"]},{"c":"Bentons (VIC)","b":["Bendigo","Campbellfield","Coburg North","Corio","Derrimut","East Keilor (HO)","Golden Square","Heatherton","Heidelberg","Hoppers Crossing","Leongatha","New Gisborne","South Melbourne","Thomastown","Williamstown"]},{"c":"Burnetts (VIC)","b":["Drysdale","Geelong","Grovedale","Ocean Grove"]},{"c":"Burdens (VIC)","b":["Balwyn","Berwick","Braeside","Cranbourne","Dandenong","Ferntree Gully","Footscray","Glen Waverley","Lilydale","Murrumbeena","Pakenham","Ringwood","Somerville","Thomastown","Warragul"]},{"c":"Dahlsens (VIC)","b":["Bairnsdale","Ballarat","Bayswater","Cranbourne","Lakes Entrance","Laverton","Mildura","Myrtleford","Pakenham","Sale","Swan Hill","Thomastown","Traralgon","Warragul"]},{"c":"Eagles Plumbing Plus (NSW)","b":["Bennetts Green","Cessnock","Charmhaven","Forster","Long Jetty","Mayfield","Morisset Eagles","Raymond Terrace","Rutherford","West Gosford","Woy Woy"]},{"c":"Cooks Plumbing (NSW)","b":["Brendale QLD","Penrith NSW","Summer Park QLD","Windsor NSW"]},{"c":"Thrifty Plumbing (NSW)","b":["Campsie - The Bathroom Outlet","Chatswood - WC Bath & Shower","Thrifty Plumbing Supplies - Campsie","Thrifty Plumbing Supplies - Seven Hills"]},{"c":"K & R Plumbing (QLD)","b":["Albion","Chinchilla","Gatton","Ipswich","Mt Gravatt","Toowoomba"]},{"c":"BBK Express (QLD)","b":["Alderley","Burleigh Heads","Labrador"]},{"c":"Kens Plumbing (QLD)","b":["Bundaberg","Emerald","Gladstone","Hervey Bay","Rockhampton north","Rockhampton south","Yeppoon"]},{"c":"Hallett / Pickards (SA)","b":["Estilo Bathware & Ceramics","Windsor Gardens"]},{"c":"Scotts Plumbing (SA)","b":["Klemzig"]}];
+const CUSTOMER_NAMES = CUSTOMERS.map(x => x.c);
+/* Branches for the customer in the setup form; everything, if none is picked. */
+const branchesFor = c => { const m = CUSTOMERS.find(x => x.c === c);
+  return m ? m.b.slice() : CUSTOMERS.reduce((a, x) => a.concat(x.b), []); };
+/* The key a setup is stored against. Branch alone is not unique: Pakenham and
+   Thomastown each belong to three different customers. */
+const KEYSEP = " \u00b7 ";
+const keyOf = (c, b) => (c ? c + KEYSEP : "") + (b || "");
+const curKey = () => keyOf(S.f.customer, S.f.branch);
+const splitKey = k => { const i = k.indexOf(KEYSEP);
+  return i < 0 ? {c: "", b: k} : {c: k.slice(0, i), b: k.slice(i + KEYSEP.length)}; };
 
 /* ── Pre-loaded branch setup ───────────────────────────────────────────────
    Empty in a fresh file. Export the setup from a phone that has the branches
@@ -353,12 +364,42 @@ const BRANCH_LIST = ["Bassendean","Broome","Bunbury","Busselton","Clarkson","Dar
 const SEED = {};
 
 let S = NEW(), BRANCHES = [];
+
+/* Records saved before the customer field existed are keyed by the bare branch
+   name. Galvins was the only customer live, so a bare key that is one of its
+   branches becomes "Galvin's (WA) · <branch>". Runs once, safe to run again, and
+   never clobbers a composite key that already exists. A bare key that is NOT a
+   Galvins branch is left exactly where it is rather than guessed at. */
+function migrateKeys(store){
+  const legacy = CUSTOMERS.find(x => x.c === "Galvin's (WA)");
+  if(!legacy) return {store, moved:0, left:[]};
+  let moved = 0; const left = [];
+  Object.keys(store).forEach(k => {
+    if(k.indexOf(KEYSEP) >= 0) return;              // already migrated
+    if(legacy.b.indexOf(k) < 0){ left.push(k); return; }
+    const nk = keyOf(legacy.c, k);
+    if(store[nk] === undefined){ store[nk] = store[k]; moved++; }
+    delete store[k];
+  });
+  return {store, moved, left};
+}
 const LS="micron.visit.v2", LSB="micron.branches.v1", LSV="micron.visits.v1";
 
 /* The branch record lives in this phone's own storage. No account, no server.
    One rep per branch is the normal case, so this carries MIN/MAX from visit to
    visit correctly. Use Backup to move it to another phone. */
-const readStore = () => { try{ return JSON.parse(localStorage.getItem(LSB)||"{}"); }catch(e){ return {}; } };
+let _migrated = false;
+const readStore = () => { try{
+  const s = JSON.parse(localStorage.getItem(LSB)||"{}");
+  if(_migrated) return s;
+  _migrated = true;
+  const r = migrateKeys(s);
+  if(r.moved){
+    try{ localStorage.setItem(LSB, JSON.stringify(r.store)); }catch(e){}
+    setTimeout(()=>flash(r.moved+" saved branch"+(r.moved===1?"":"es")+" moved under Galvin's"), 700);
+  }
+  return r.store;
+}catch(e){ return {}; } };
 const writeStore = o => { try{ localStorage.setItem(LSB, JSON.stringify(o)); return true; }catch(e){ return false; } };
 const persist=()=>{ try{ localStorage.setItem(LS, JSON.stringify({...S, edit:false, q:""})); }catch(e){} };
 const E=(t,c,h)=>{const e=document.createElement(t); if(c)e.className=c; if(h!==undefined)e.innerHTML=h; return e;};
@@ -401,7 +442,8 @@ function toggleBay(code){
 /* The bay sticks to the branch straight away, before the visit is ever saved. */
 function saveBay(){
   const n=S.f.branch; if(!n) return;
-  try{ const store=readStore(); store[n]={...(store[n]||{}), bay:S.bay}; writeStore(store); loadBranches(); }catch(e){}
+  const k=curKey();
+  try{ const store=readStore(); store[k]={...(store[k]||{}), bay:S.bay}; writeStore(store); loadBranches(); }catch(e){}
 }
 function resetBay(){
   if(!confirm("Clear this branch back to one line (WH303A/X)? Anything added here is removed.")) return;
@@ -447,9 +489,17 @@ function drawSetup(){
     if(type==="sel"){ el=E("select"); el.appendChild(E("option",null,"—"));
       opts.forEach(o=>{const op=E("option",null,o); op.value=o; if(S.f[k]===o)op.selected=true; el.appendChild(op);}); }
     else if(type==="branch"){
-      el=E("input"); el.type="text"; el.value=S.f[k]||""; el.setAttribute("list","branchlist"); el.placeholder="Type or pick";
+      el=E("input"); el.type="text"; el.value=S.f[k]||""; el.setAttribute("list","branchlist");
+      el.placeholder = S.f.customer ? "Type or pick" : "Pick a customer first";
       const dl=E("datalist"); dl.id="branchlist";
-      BRANCHES.forEach(b=>{ const o=E("option"); o.value=b.branch; dl.appendChild(o); });
+      branchesFor(S.f.customer).forEach(n=>{ const o=E("option"); o.value=n; dl.appendChild(o); });
+      f.appendChild(dl);
+    }
+    else if(type==="customer"){
+      el=E("input"); el.type="text"; el.value=S.f[k]||""; el.setAttribute("list","custlist");
+      el.placeholder="Type or pick";
+      const dl=E("datalist"); dl.id="custlist";
+      CUSTOMER_NAMES.forEach(n=>{ const o=E("option"); o.value=n; dl.appendChild(o); });
       f.appendChild(dl);
     } else { el=E("input"); el.type=type; el.value=S.f[k]||""; }
     el.oninput=e=>{ S.f[k]=e.target.value; persist(); if(k==="tier") draw(); else chrome(); };
@@ -460,10 +510,15 @@ function drawSetup(){
         }
         draw();
       }
-      else if(k==="branch"){ loadBranch(e.target.value); }
+      else if(k==="branch"){ loadBranch(); }
+      else if(k==="customer"){
+        /* a branch under the old customer is not the same store under the new one */
+        S.f.branch=""; S.bay=null; S.stock={}; S.prior=null; persist(); draw();
+      }
       else chrome(); };
     f.appendChild(el); h.appendChild(f);
   };
+  add("customer","Customer","customer",null,1);
   add("branch","Branch","branch",null,1);
   add("rep","Rep","text");
   add("date","Date","date");
@@ -473,16 +528,24 @@ function drawSetup(){
 
 function loadBranches(){
   const store = readStore();
-  BRANCHES = BRANCH_LIST.map(n => store[n] ? {...store[n], branch:n} : {branch:n});
-  Object.keys(store).forEach(n => { if(!BRANCH_LIST.includes(n)) BRANCHES.push({...store[n], branch:n}); });
-  BRANCHES.sort((a,b)=>a.branch.localeCompare(b.branch));
+  const seen = {};
+  BRANCHES = [];
+  CUSTOMERS.forEach(x => x.b.forEach(n => { const k = keyOf(x.c, n);
+    seen[k] = 1; BRANCHES.push({...(store[k]||{}), key:k, customer:x.c, branch:n}); }));
+  /* anything saved that is not in the published lists — a store typed by hand */
+  Object.keys(store).forEach(k => { if(seen[k]) return;
+    const p = splitKey(k); BRANCHES.push({...store[k], key:k, customer:p.c, branch:p.b}); });
+  BRANCHES.sort((a,b)=> (a.customer||"").localeCompare(b.customer||"") ||
+                         a.branch.localeCompare(b.branch));
 }
 
 /* Three sources, weakest first: what the file shipped with, what someone saved as this
    branch's setup, then what the last real visit counted. The newest truth wins. */
-function loadBranch(name){
-  const b = BRANCHES.find(x=>x.branch===name) || {};
-  const seed = SEED[name] || {};
+function loadBranch(){
+  const k = curKey();
+  if(!S.f.branch) return;
+  const b = BRANCHES.find(x=>x.key===k) || {};
+  const seed = SEED[k] || SEED[S.f.branch] || {};
   S.f.storeno = b.storeno || seed.storeno || "";
   const tier = b.tier || seed.tier;
   if(tier) S.f.tier = (String(tier).match(/Tier \d/)||[tier])[0];
@@ -508,12 +571,13 @@ function loadBranch(name){
 function drawBranchCard(){
   const host=document.getElementById("bcard"); host.innerHTML="";
   const n=S.f.branch; if(!n) return;
-  const b=BRANCHES.find(x=>x.branch===n)||{}, seed=SEED[n]||{};
+  const k=curKey();
+  const b=BRANCHES.find(x=>x.key===k)||{}, seed=SEED[k]||SEED[n]||{};
   const have = !!(b.bay||b.minmax||b.stock||b.lastVisit||seed.bay||seed.minmax);
   const list=bay(), set=list.filter(r=>{const o=st(r.s); return +o.min>0 && +o.max>0;}).length;
 
   const c=E("div","bcard"+(have?"":" none"));
-  c.appendChild(E("h3",null,"On file for "+n));
+  c.appendChild(E("h3",null,"On file for "+(S.f.customer?S.f.customer+" · ":"")+n));
   if(!have){
     c.appendChild(E("div","kv","Nothing saved for this branch yet. The bay starts at one line — add what "+
       "this store carries, set MIN and MAX on each, then tap <b>Save branch setup</b>. Next time you open "+
@@ -545,11 +609,13 @@ function drawBranchCard(){
 function saveSetup(){
   const n=S.f.branch;
   if(!n){ flash("Pick a branch first"); return; }
+  if(!S.f.customer){ flash("Pick the customer first — the setup is saved against it"); return; }
+  const k=curKey();
   const minmax={};
   bay().forEach(r=>{ const o=st(r.s); if(+o.min>0||+o.max>0) minmax[r.s]=[o.min,o.max]; });
   try{
     const store=readStore();
-    store[n]={...(store[n]||{}), bay:(S.bay&&S.bay.length)?S.bay:bayCodes(),
+    store[k]={...(store[k]||{}), bay:(S.bay&&S.bay.length)?S.bay:bayCodes(),
               minmax, tier:S.f.tier||"", storeno:S.f.storeno||"",
               setupAt:new Date().toISOString().slice(0,10)};
     if(!writeStore(store)){ flash("Could not save"); return; }
@@ -591,7 +657,7 @@ function importSetup(){
                   minmax:{...(s.minmax||{}), ...(cur.minmax||{})}};
       });
       if(!writeStore(store)){ flash("Could not save"); return; }
-      loadBranches(); if(S.f.branch) loadBranch(S.f.branch); else draw();
+      loadBranches(); if(S.f.branch) loadBranch(); else draw();
       flash("Setup loaded for "+Object.keys(inc).length+" branches");
     }catch(err){ flash("That file isn't a Micron branch setup"); } };
     rd.readAsText(f); };
@@ -706,7 +772,7 @@ function drawStock(){
   bh.appendChild(bl);
   const eb=E("button","edb"+(S.edit?" on":""), S.edit?"DONE":"EDIT BAY"); eb.type="button";
   eb.onclick=()=>{
-    if(!S.edit && !S.f.branch){ flash("Pick a branch first — the bay is saved against it"); return; }
+    if(!S.edit && !(S.f.customer && S.f.branch)){ flash("Pick the customer and branch first — the bay is saved against them"); return; }
     S.edit=!S.edit; if(!S.edit) saveBay(); persist(); draw();
   };
   bh.appendChild(eb); host.appendChild(bh);
@@ -935,7 +1001,7 @@ function reportText(){
   const ord=counting().map(r=>({r,o:st(r.s),b:band(st(r.s))})).filter(x=>x.b.q>0)
               .sort((a,b)=>(a.b.k==="c"?0:1)-(b.b.k==="c"?0:1));
   const L=[];
-  L.push(`MICRON VISIT — ${S.f.branch||"(branch)"}${S.f.storeno?" ("+S.f.storeno+")":""}`);
+  L.push(`MICRON VISIT — ${S.f.customer?S.f.customer+" · ":""}${S.f.branch||"(branch)"}${S.f.storeno?" ("+S.f.storeno+")":""}`);
   L.push(`${S.f.date||""} · ${S.f.rep||"rep"} · ${S.f.tier||""} · Score ${d.counted?d.total:"–"}/100 ${d.counted?d.band[0]:""}`);
   L.push("");
   if(ord.length){
@@ -985,7 +1051,7 @@ function download(name, text, type){
   }catch(e){ flash("Download not supported here — use Copy"); }
 }
 function saveCSV(){
-  download(`micron-${(S.f.branch||"branch").replace(/[^a-z0-9]+/gi,"-").toLowerCase()}-${S.f.date||""}.csv`,
+  download(`micron-${((S.f.customer?S.f.customer+"-":"")+(S.f.branch||"branch")).replace(/[^a-z0-9]+/gi,"-").toLowerCase()}-${S.f.date||""}.csv`,
            csv(), "text/csv;charset=utf-8");
 }
 function backup(){
@@ -1050,7 +1116,7 @@ async function save(){
   counting().forEach(r=>{ const o=st(r.s); stock[r.s]={cur:o.cur,min:o.min,max:o.max,recv:o.recv}; });
   const ord=counting().map(r=>({r,b:band(st(r.s))})).filter(x=>x.b.q>0);
   const rec={ id:S.id, savedAt:new Date().toISOString(),
-    branch:S.f.branch||"", storeno:S.f.storeno||"", rep:S.f.rep||"", tier:S.f.tier||"",
+    branch:S.f.branch||"", customer:S.f.customer||"", storeno:S.f.storeno||"", rep:S.f.rep||"", tier:S.f.tier||"",
     date:S.f.date||"", nextVisit:S.f.next||"", score:d.counted?d.total:null, band:d.counted?d.band[0]:"",
     steps:STEPS.filter((_,i)=>S.t["s"+i]).length, counted:d.counted, skus:d.total_skus,
     stockouts:d.zeroA.map(r=>r.s), orderLines:ord.length, bay:(S.bay&&S.bay.length)?S.bay:null,
@@ -1059,17 +1125,19 @@ async function save(){
     photosBefore:!!S.t.s0, photosAfter:!!S.t.s9, stock };
   const el=document.getElementById("sync");
   if(!rec.branch){ flash("Pick a branch first"); return; }
+  if(!rec.customer){ flash("Pick the customer first"); return; }
+  const recKey = keyOf(rec.customer, rec.branch);
 
   const minmax={};
   bay().forEach(r=>{ const o=st(r.s); if(+o.min>0||+o.max>0) minmax[r.s]=[o.min,o.max]; });
   const store=readStore();
-  store[rec.branch]={...(store[rec.branch]||{}), ...rec, minmax,
+  store[recKey]={...(store[recKey]||{}), ...rec, minmax,
                      lastVisit:rec.date||new Date().toISOString().slice(0,10), stock};
   const ok=writeStore(store);
 
   try{
     const log=JSON.parse(localStorage.getItem(LSV)||"[]");
-    log.unshift({id:rec.id, branch:rec.branch, date:rec.date, rep:rec.rep, score:rec.score,
+    log.unshift({id:rec.id, branch:rec.branch, customer:rec.customer, date:rec.date, rep:rec.rep, score:rec.score,
                  band:rec.band, orderUnits:rec.orderUnits, stockouts:rec.stockouts, steps:rec.steps});
     localStorage.setItem(LSV, JSON.stringify(log.slice(0,200)));
   }catch(e){}
