@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Micron Store Visit</title>
+<meta name="description" content="Micron Water Filters store visit checklist">
+<meta name="theme-color" content="#0B2545">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Micron Visit">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 30'%3E%3Cpath d='M12 1C12 1 2.5 12.4 2.5 19A9.5 9.5 0 0 0 21.5 19C21.5 12.4 12 1 12 1Z' fill='%234A9BE0'/%3E%3Cpath d='M12 6.5C12 6.5 6.5 13.6 6.5 18.2a5.5 5.5 0 0 0 11 0C17.5 13.6 12 6.5 12 6.5Z' fill='%230B2545'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --navy:#0B2545; --blue:#1668B8; --soft:#E7F0F9;
+  --ink:#0E1822; --ink2:#4A5C6E; --ink3:#7B8C9C;
+  --paper:#F2F5F8; --card:#FFF; --line:#D5DEE7; --line2:#E9EFF4;
+  --crit:#B3241C; --critbg:#FBE9E7;
+  --ord:#C4650F;  --ordbg:#FDF0E1;
+  --ok:#177C4E;   --okbg:#E6F4EC;
+  --over:#2E7DA1; --overbg:#E5F1F6;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --navy:#0A1420; --blue:#4A9BE0; --soft:#152B41;
+  --ink:#E3EBF2; --ink2:#9FB2C4; --ink3:#75889A;
+  --paper:#070E16; --card:#111C28; --line:#26384A; --line2:#1B2836;
+  --crit:#F0776C; --critbg:#33150F;
+  --ord:#E8A055;  --ordbg:#33220E;
+  --ok:#5CC08D;   --okbg:#0F2C1E;
+  --over:#71B8D6; --overbg:#0E2733;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --navy:#0A1420; --blue:#4A9BE0; --soft:#152B41;
+  --ink:#E3EBF2; --ink2:#9FB2C4; --ink3:#75889A;
+  --paper:#070E16; --card:#111C28; --line:#26384A; --line2:#1B2836;
+  --crit:#F0776C; --critbg:#33150F;
+  --ord:#E8A055;  --ordbg:#33220E;
+  --ok:#5CC08D;   --okbg:#0F2C1E;
+  --over:#71B8D6; --overbg:#0E2733;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);padding-bottom:80px;
+  font:400 16px/1.45 "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-text-size-adjust:100%}
+.w{max-width:560px;margin:0 auto;padding:0 14px}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:2px;border-radius:5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+h2{font-family:Montserrat,sans-serif;font-weight:800;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink3);margin:22px 0 8px}
+h2 b{color:var(--blue);font-weight:800}
+
+/* top */
+.top{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff}
+.top .w{display:flex;align-items:center;gap:9px;padding-top:10px;padding-bottom:10px}
+.dp{width:17px;height:22px;flex:none}
+.bd{font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.15em;text-transform:uppercase;line-height:1.1}
+.bd small{display:block;font-weight:700;font-size:8.5px;letter-spacing:.22em;color:#8FB5DC}
+.tr{margin-left:auto;text-align:right}
+.tr b{display:block;font-size:12.5px;font-weight:600;max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tr span{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#8FB5DC}
+.pg{height:3px;background:rgba(255,255,255,.15)}
+.pg i{display:block;height:100%;background:#4A9BE0;width:0;transition:width .25s}
+
+/* setup */
+.setup{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.fl{display:flex;flex-direction:column;gap:3px;min-width:0}
+.fl.w2{grid-column:1/-1}
+.fl label{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3)}
+.fl input,.fl select{padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+  width:100%;min-height:46px;font-size:16px}
+
+/* ticks */
+.ticks{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.t{display:flex;gap:12px;align-items:center;padding:0 14px;min-height:52px;cursor:pointer;
+  border-bottom:1px solid var(--line2);user-select:none}
+.t:last-child{border-bottom:0}
+.bx{width:26px;height:26px;flex:none;border:2px solid var(--line);border-radius:7px;display:grid;place-items:center;
+  transition:background .12s,border-color .12s}
+.bx svg{width:15px;height:15px;opacity:0;stroke:#fff;stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.t.on .bx{background:var(--ok);border-color:var(--ok)}
+.t.on .bx svg{opacity:1}
+.t .lb{font-size:15.5px;line-height:1.3;padding:11px 0}
+.t.on .lb{color:var(--ink3)}
+.t .no{margin-left:auto;font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--ink3);
+  font-variant-numeric:tabular-nums;flex:none}
+
+/* stock */
+.tools{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.chip{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:20px;
+  background:var(--line2);color:var(--ink2)}
+.chip.c{background:var(--critbg);color:var(--crit)} .chip.o{background:var(--ordbg);color:var(--ord)}
+.chip.k{background:var(--okbg);color:var(--ok)}     .chip.v{background:var(--overbg);color:var(--over)}
+.chip.$ {background:var(--navy);color:#fff}
+.stock{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.fh{font-family:Montserrat;font-size:9.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink3);background:var(--paper);padding:6px 14px;border-bottom:1px solid var(--line2)}
+.r{display:flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-bottom:1px solid var(--line2);
+  border-left:4px solid transparent}
+.r:last-child{border-bottom:0}
+.r.c{border-left-color:var(--crit);background:var(--critbg)}
+.r.o{border-left-color:var(--ord);background:var(--ordbg)}
+.r.k{border-left-color:var(--ok)}
+.r.v{border-left-color:var(--over);background:var(--overbg)}
+.rl{flex:1;min-width:0}
+.rs{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:600;font-size:14px;letter-spacing:-.02em}
+.rn{font-size:11px;color:var(--ink3);margin-top:1px;overflow:hidden;display:-webkit-box;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical;line-clamp:2;line-height:1.3}
+.rv{font-size:11px;font-weight:700;letter-spacing:.03em;margin-top:2px}
+.rv.c{color:var(--crit)} .rv.o{color:var(--ord)} .rv.k{color:var(--ok)} .rv.v{color:var(--over)}
+.stp{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);flex:none}
+.stp button{width:42px;height:44px;border:0;background:none;font-size:20px;font-weight:600;color:var(--blue);cursor:pointer;line-height:1}
+.stp button:active{background:var(--soft)}
+.stp input{width:48px;height:44px;border:0;border-left:1px solid var(--line);border-right:1px solid var(--line);
+  text-align:center;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;background:none;-moz-appearance:textfield}
+.stp input::-webkit-inner-spin-button,.stp input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.mmx{flex:none;text-align:right;font-size:10px;color:var(--ink3);line-height:1.35;min-width:44px}
+.mmx b{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);font-variant-numeric:tabular-nums}
+.recvbar{display:flex;align-items:center;gap:9px;padding:9px 14px;background:var(--soft);
+  border-bottom:1px solid var(--line2);font-size:12.5px;color:var(--ink2)}
+.recvbar b{color:var(--ink)}
+.rcv{width:44px;height:32px;border:1px solid var(--line);border-radius:7px;text-align:center;font-weight:600;
+  font-variant-numeric:tabular-nums;background:var(--card);flex:none;font-size:14px}
+.rcvw{display:flex;align-items:center;gap:5px;flex:none;font-size:10px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink3)}
+
+/* full-range tree */
+.fh.sub{background:var(--card);color:var(--ink3);padding:5px 14px 4px;letter-spacing:.1em;font-size:9px}
+.fh.fr{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--navy);color:#fff;
+  border-bottom:0;letter-spacing:.14em;padding:9px 14px}
+.find{display:block;width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--line2);
+  padding:11px 14px;font-size:14px;font-family:inherit;background:var(--card);color:var(--ink)}
+.find::placeholder{color:var(--ink3)}
+.gh,.sh{display:flex;align-items:center;gap:9px;width:100%;box-sizing:border-box;text-align:left;border:0;
+  background:var(--card);border-bottom:1px solid var(--line2);cursor:pointer;font-family:inherit;color:var(--ink)}
+.gh{padding:13px 14px;font-family:Montserrat;font-weight:800;font-size:12px;letter-spacing:.07em}
+.gh:active,.sh:active{background:var(--soft)}
+.sh{padding:11px 14px 11px 26px;font-size:13px;font-weight:600;color:var(--ink2);background:var(--paper)}
+.gh .cv,.sh .cv{flex:none;width:9px;color:var(--ink3);font-size:10px;transition:transform .12s}
+.gh.op .cv,.sh.op .cv{transform:rotate(90deg)}
+.gh .lb,.sh .lb{flex:1;min-width:0}
+.gh .ct,.sh .ct{flex:none;font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.04em}
+.dot{flex:none;width:8px;height:8px;border-radius:50%}
+.dot.c{background:var(--crit)} .dot.o{background:var(--ord)} .dot.k{background:var(--ok)}
+.r.onb{box-shadow:inset 3px 0 0 var(--blue)}
+.obt{display:inline-block;vertical-align:2px;margin-left:6px;font-size:8px;font-weight:800;letter-spacing:.1em;
+  color:var(--blue);background:var(--soft);padding:2px 5px;border-radius:4px;font-family:Montserrat}
+.r.n{border-left-color:var(--line)} .rv.n{color:var(--ink3)}
+.chip.n{background:var(--line2);color:var(--ink3)}
+.mmb{flex:none;border:1px dashed var(--line);background:none;border-radius:8px;padding:4px 6px;cursor:pointer;
+  font-family:inherit;text-align:right;min-width:48px;color:var(--ink3);font-size:10px;line-height:1.3}
+.mmb b{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);font-variant-numeric:tabular-nums}
+.mme{flex:none;display:flex;gap:4px}
+.mme input{width:40px;height:40px;border:1px solid var(--blue);border-radius:7px;text-align:center;
+  font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;background:var(--card);color:var(--ink);
+  -moz-appearance:textfield;font-family:inherit}
+.mme input::-webkit-inner-spin-button,.mme input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.nores{padding:16px 14px;font-size:13px;color:var(--ink3)}
+
+.r.pk{padding:10px 14px 10px 10px}
+.r.pk.on{background:var(--soft)}
+.pbtn{flex:none;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:8px 11px;
+  font-family:Montserrat;font-weight:800;font-size:9.5px;letter-spacing:.11em;color:var(--ink3);cursor:pointer}
+.pbtn.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.pbtn:active{opacity:.7}
+.ednote{padding:10px 14px;background:var(--soft);border-bottom:1px solid var(--line2);
+  font-size:12.5px;color:var(--ink2);line-height:1.45}
+.ednote b{color:var(--ink)}
+.fh.bayh{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.edb{border:1px solid var(--line);background:var(--card);border-radius:7px;padding:5px 9px;cursor:pointer;
+  font-family:Montserrat;font-weight:800;font-size:9px;letter-spacing:.11em;color:var(--blue)}
+.edb.on{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* branch card */
+.bcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:14px}
+.bcard.none{border-style:dashed;background:none}
+.bcard h3{margin:0 0 7px;font-family:Montserrat;font-weight:800;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink3)}
+.bcard .kv{display:flex;flex-wrap:wrap;gap:5px 16px;font-size:12.5px;color:var(--ink2);line-height:1.5}
+.bcard .kv b{color:var(--ink);font-weight:700}
+.bcard .was{margin-top:9px;font-size:12px;color:var(--ink2);line-height:1.5;
+  border-top:1px solid var(--line2);padding-top:9px}
+.bcard .was b{color:var(--crit)}
+.bcard .btn{margin-top:11px}
+.rp{font-size:10.5px;color:var(--ink3);margin-top:2px;font-variant-numeric:tabular-nums}
+.rp b{color:var(--ink2);font-weight:700}
+
+/* actions */
+.ac{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.ac.R{border-left-color:var(--crit)} .ac.A{border-left-color:var(--ord)} .ac.G{border-left-color:var(--ok)}
+.ac input,.ac select{padding:7px 8px;border:1px solid var(--line);border-radius:7px;font-size:13px;background:var(--card);min-height:38px}
+.ac .row1{width:100%;font-weight:600;font-size:14.5px;margin-bottom:7px}
+.ac .row2{display:flex;gap:6px;flex-wrap:wrap}
+.ac .row2 input{flex:1;min-width:96px}
+.btn{padding:12px 16px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-weight:600;
+  font-size:15px;cursor:pointer;min-height:48px}
+.btn.p{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.n{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.dz{border-style:dashed;color:var(--blue);width:100%;font-weight:600}
+.btn.sm{min-height:38px;padding:7px 12px;font-size:13px}
+
+/* score */
+.sc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:15px;align-items:center}
+.sc .n{font-family:Montserrat;font-weight:800;font-size:46px;line-height:.88;font-variant-numeric:tabular-nums}
+.sc .n sub{font-size:15px;color:var(--ink3);vertical-align:3px}
+.sc .bnd{font-family:Montserrat;font-weight:800;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.sc .drag{font-size:12.5px;color:var(--ink2);line-height:1.4;margin-top:3px}
+
+/* basecamp block */
+.bc{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.bc .bh{background:var(--navy);color:#fff;padding:11px 14px}
+.bc .bh b{font-family:Montserrat;font-weight:800;font-size:13px;letter-spacing:.05em;display:block}
+.bc .bh span{font-size:11.5px;color:#8FB5DC}
+.bc .bb{padding:12px 14px}
+pre{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:11px;
+  font:500 11.5px/1.45 "IBM Plex Mono",ui-monospace,monospace;white-space:pre-wrap;word-break:break-word;
+  max-height:220px;overflow:auto;color:var(--ink2)}
+.note{background:var(--soft);border-radius:9px;padding:10px 12px;font-size:12.5px;line-height:1.45;color:var(--ink2);margin-top:10px}
+.note b{color:var(--ink)}
+.mini{font-size:11.5px;color:var(--ink3);line-height:1.45;margin-top:8px}
+
+/* footer */
+.ft{position:fixed;left:0;right:0;bottom:0;z-index:35;background:var(--card);border-top:1px solid var(--line);
+  box-shadow:0 -3px 14px rgba(11,37,69,.1);padding-bottom:env(safe-area-inset-bottom)}
+.ft .w{display:flex;align-items:center;gap:11px;padding-top:9px;padding-bottom:9px}
+.ft .fs{line-height:1.05;flex:none}
+.ft .fs b{font-family:Montserrat;font-weight:800;font-size:23px;font-variant-numeric:tabular-nums}
+.ft .fs span{display:block;font-size:8.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.ft .fm{flex:1;min-width:0;font-size:11.5px;color:var(--ink2);line-height:1.3}
+.ft .fm b{display:block;font-size:12.5px}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="w">
+    <svg class="dp" viewBox="0 0 24 30" aria-hidden="true">
+      <path d="M12 1C12 1 2.5 12.4 2.5 19A9.5 9.5 0 0 0 21.5 19C21.5 12.4 12 1 12 1Z" fill="#4A9BE0"/>
+      <path d="M12 6.5C12 6.5 6.5 13.6 6.5 18.2a5.5 5.5 0 0 0 11 0C17.5 13.6 12 6.5 12 6.5Z" fill="#0B2545"/>
+    </svg>
+    <span class="bd">Micron<small>Store Visit</small></span>
+    <span class="tr"><b id="tb">Pick a branch</b><span id="tm">0 of 12</span></span>
+  </div>
+  <div class="pg"><i id="pg"></i></div>
+</header>
+
+<main class="w">
+  <div class="setup" id="setup"></div>
+  <div id="bcard"></div>
+
+  <h2><b>1</b> &nbsp;The visit</h2>
+  <div class="ticks" id="ticks"></div>
+
+  <h2><b>2</b> &nbsp;Count the stock</h2>
+  <div class="tools" id="tools"></div>
+  <div class="stock" id="stock"></div>
+  <div id="recalc"></div>
+
+  <h2><b>3</b> &nbsp;Anything broken</h2>
+  <div id="actions"></div>
+
+  <h2><b>4</b> &nbsp;Visit score</h2>
+  <div class="sc" id="score"></div>
+
+  <h2><b>5</b> &nbsp;Post it to Basecamp</h2>
+  <div class="bc">
+    <div class="bh"><b>Paste this onto the branch card</b><span>Copy it, then paste it as a comment on the branch card</span></div>
+    <div class="bb">
+      <pre id="report"></pre>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn p" type="button" onclick="copyReport()">Copy for Basecamp</button>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;
+                  border-top:1px solid var(--line2);padding-top:12px">
+        <button class="btn" type="button" id="csvb" onclick="saveCSV()">Stock CSV</button>
+        <button class="btn" type="button" onclick="newVisit()">New visit</button>
+        <button class="btn sm" type="button" onclick="exportSetup()">Export setup</button>
+        <button class="btn sm" type="button" onclick="importSetup()">Import setup</button>
+        <button class="btn sm" type="button" onclick="backup()">Backup</button>
+        <button class="btn sm" type="button" onclick="restore()">Restore</button>
+      </div>
+      <div class="mini" id="sync"></div>
+    </div>
+  </div>
+  <div style="height:26px"></div>
+</main>
+
+<div class="ft">
+  <div class="w">
+    <div class="fs"><b id="fsc">—</b><span id="fbd">score</span></div>
+    <div class="fm"><b id="fm1">Pick a branch to start</b><span id="fm2"></span></div>
+    <button class="btn n" type="button" onclick="save()">Save</button>
+  </div>
+</div>
+<script>
+/* ═════ Micron Store Visit — the light one ═════════════════════ */
+const RANGE=[{"s":"MQ1","n":"MQ1 Twin Undersink Quick-Change + Faucet","f":"Undersink MQ / MT","c":"C","t":3,"m":[[1,2],[1,2],[1,1]]},{"s":"MT-05","n":"MT-05 5 Micron Sediment QC","f":"Undersink MQ / MT","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MT-33","n":"MT-33 Carbon Block QC","f":"Undersink MQ / MT","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MT-CTO","n":"MT-CTO Coconut Carbon Block QC","f":"Undersink MQ / MT","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MQ3","n":"MQ3 Triple Undersink Quick-Change + Faucet","f":"Undersink MQ / MT","c":"C","t":2,"m":[[1,2],[1,2],[null,null]]},{"s":"MT-M","n":"MT-M Mineral QC","f":"Undersink MQ / MT","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MQ2","n":"MQ2 Twin Undersink Quick-Change + Faucet","f":"Undersink MQ / MT","c":"C","t":1,"m":[[1,2],[null,null],[null,null]]},{"s":"MT-33-PH","n":"MT-33-PH Alkaline pH QC","f":"Undersink MQ / MT","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MT-34","n":"MT-34 Mineral QC","f":"Undersink MQ / MT","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MB-05","n":"MB-05 5 Micron Sediment QC","f":"Inline MB","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MB-CTO","n":"MB-CTO Coconut Carbon Block QC","f":"Inline MB","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MB1","n":"MB1 Two-Stage-in-One Inline High Flow System","f":"Inline MB","c":"C","t":3,"m":[[1,2],[1,2],[1,1]]},{"s":"MB-M","n":"MB-M Mineral QC","f":"Inline MB","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MB3","n":"MB3 Triple Inline High Flow System","f":"Inline MB","c":"C","t":2,"m":[[1,2],[1,2],[null,null]]},{"s":"MB-33","n":"MB-33 Carbon Block QC","f":"Inline MB","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MB-PC","n":"MB-PC Sediment + Carbon QC","f":"Inline MB","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MB2","n":"MB2 Twin Inline High Flow System","f":"Inline MB","c":"C","t":1,"m":[[1,2],[null,null],[null,null]]},{"s":"MWF-MX1-20","n":"MX1-20 Inline Undersink System (20mm)","f":"Inline MX","c":"C","t":2,"m":[[1,2],[1,2],[null,null]]},{"s":"MX-05","n":"MX-05 5 Micron PP","f":"Inline MX","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MX-PC","n":"MX-PC 5 Micron PP + Carbon Replacement","f":"Inline MX","c":"A","t":2,"m":[[2,6],[2,5],[null,null]]},{"s":"MX-CTO","n":"MX-CTO Coconut Carbon Block","f":"Inline MX","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MX-GAC","n":"MX-GAC Granular Coconut Carbon","f":"Inline MX","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MR-05","n":"MR-05 5 Micron Sediment QC","f":"Reverse Osmosis","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MR-CTO","n":"MR-CTO Coconut Carbon Block QC","f":"Reverse Osmosis","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MR-R050","n":"MR-RO50 50GPD RO Membrane QC","f":"Reverse Osmosis","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"RO-MR3","n":"RO-MR3 3-Stage Reverse Osmosis System","f":"Reverse Osmosis","c":"C","t":2,"m":[[1,2],[1,2],[null,null]]},{"s":"MR-34M","n":"MR-34M GAC + Mineral Post Filter QC","f":"Reverse Osmosis","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"RO-MR5","n":"RO-MR5 5-Stage RO with Pump","f":"Reverse Osmosis","c":"C","t":1,"m":[[1,2],[null,null],[null,null]]},{"s":"MU10-05","n":"MU10-05 5 Micron Spun Sediment 10in","f":"Standard 10in / MU","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MU10-CTO-UD","n":"MU10-CTO-UD Coconut Carbon Block 10in","f":"Standard 10in / MU","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MU05-05","n":"MU05-05 5 Micron PP 5in","f":"Standard 10in / MU","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MU10-GAC","n":"MU10-GAC Granular Coconut Carbon 10in","f":"Standard 10in / MU","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MWF-WH102","n":"MWF-WH102 Twin 10in Filtration System","f":"Standard 10in / MU","c":"C","t":2,"m":[[1,2],[1,2],[null,null]]},{"s":"MU10-PHOS","n":"MU10-PHOS Anti-Scale GAC 10in","f":"Standard 10in / MU","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MU10-RES","n":"MU10-RES Resin Softening 10in","f":"Standard 10in / MU","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"YTB-10BL","n":"YTB-10BL 10in Big Blue Housing","f":"Standard 10in / MU","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"WH20-5SED","n":"WH20-5SED 5 Micron Sediment 20in","f":"Whole House","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"WH20-CTO","n":"WH20-CTO Carbon Block 20in","f":"Whole House","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]},{"s":"MWF10-5SPP","n":"MWF10-5SPP 5 Micron Sediment 10in","f":"Whole House","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MWF20-5SPP","n":"MWF20-5SPP 5 Micron Sediment 20in","f":"Whole House","c":"A","t":2,"m":[[2,6],[2,5],[null,null]]},{"s":"MWF20-CTO","n":"MWF20-CTO Carbon Block 20in","f":"Whole House","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"WH20-5SPL","n":"WH20-5SPL 5 Micron Pleated Sediment 20in","f":"Whole House","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"WH302","n":"WH302 WH300 Twin Whole House System","f":"Whole House","c":"C","t":2,"m":[[1,2],[1,2],[null,null]]},{"s":"YTB-20BL","n":"YTB-20BL 4.5x20in Housing","f":"Whole House","c":"B","t":2,"m":[[1,3],[1,3],[null,null]]},{"s":"MWF20-5SPL","n":"MWF20-5SPL 5 Micron Pleated Sediment 20in","f":"Whole House","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MWF20-PHOS","n":"MWF20-PHOS Anti-Scale GAC 20in","f":"Whole House","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"MWF20-RES","n":"MWF20-RES Resin Softening 20in","f":"Whole House","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"WH20-GAC","n":"WH20-GAC Granular Activated Carbon 20in","f":"Whole House","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"WH20-PFAS","n":"WH20-PFAS Carbon PFAS Reduction 20in","f":"Whole House","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"WH20-RES+","n":"WH20-RES+ High Capacity Resin Softening 20in","f":"Whole House","c":"B","t":1,"m":[[1,3],[null,null],[null,null]]},{"s":"WH303","n":"WH303 WH300 Triple Whole House System","f":"Whole House","c":"D","t":1,"m":[[1,1],[null,null],[null,null]]},{"s":"WH303A/X","n":"WH303A/X Platinum Triple Whole House System","f":"Whole House","c":"D","t":1,"m":[[1,1],[null,null],[null,null]]},{"s":"MWF-S7","n":"MWF-S7 Universal Shower Filter (Brushed)","f":"Shower / Add-on","c":"C","t":3,"m":[[1,2],[1,2],[1,1]]},{"s":"S7-1","n":"S7-1 Shower Filter Replacement Cartridge","f":"Shower / Add-on","c":"A","t":3,"m":[[2,6],[2,5],[2,4]]}];
+const FAMS=[]; RANGE.forEach(r=>{ if(!FAMS.includes(r.f)) FAMS.push(r.f); });
+const CAT={"MWF-WH101":{"s":"MWF-WH101","n":"MWF-WH101 Single Filtration System 10\""},"MWF-WH102":{"s":"MWF-WH102","n":"MWF-WH102 Twin Filtration System 10\""},"MWF-WH103":{"s":"MWF-WH103","n":"MWF-WH103 Triple Filtration System 10\""},"MWF-WH201SLIM":{"s":"MWF-WH201SLIM","n":"20\" Slim Blue Filter Housing (3/8) Kit"},"WH301":{"s":"WH301","n":"WH300 Series- Single Whole House Filtration System"},"WH302":{"s":"WH302","n":"WH300 Series-Twin Whole House Filtration System"},"WH302A":{"s":"WH302A","n":"Classic WH300 Series- Twin Whole House Filtration System"},"WH302UV":{"s":"WH302UV","n":"Micron CLASSIC Series 2 stage Whole House 20\" High Flow + UV Filtration System"},"WH303":{"s":"WH303","n":"WH300 Series-Triple Whole House Filtration System"},"WH303A":{"s":"WH303A","n":"Classic WH300 Series- Triple Whole House Filtration System"},"WH303A/X":{"s":"WH303A/X","n":"Platinum WH300 Series- Triple Whole House Filtration System"},"MWF-WH203A/X":{"s":"MWF-WH203A/X","n":"Platinum Series- Triple Stage High Flow Whole House Filtration System 20\" with"},"MWF-WH203A/X-UV":{"s":"MWF-WH203A/X-UV","n":"Micron Platinum Series Whole House 20 High Flow Triple Filtration System with "},"MWF-WHSMFX303":{"s":"MWF-WHSMFX303","n":"Smartfix Model MWF-WHSMFX303"},"Whole home Frame - Ali":{"s":"Whole home Frame - Ali","n":"20\" Triple Whole home Frame Aluminium"},"Whole home wall mount - Ali":{"s":"Whole home wall mount - Ali","n":"20\" Triple Whole home wall mount with back Aluminium"},"MQ1":{"s":"MQ1","n":"MQ1 Combined 2 stage in 1 Undersink Quick-Change Filtration System with High L"},"MQ1 (3/8\")":{"s":"MQ1 (3/8\")","n":"MQ1 Combined 2 stage in 1 Undersink Quick-Change Filtration System (3/8\") with"},"MQ2":{"s":"MQ2","n":"MQ2 Twin Stage Undersink Quick-Change Filtration System with High Loop Faucet"},"MQ2 (3/8)":{"s":"MQ2 (3/8)","n":"MQ2 Twin Stage Undersink Quick-Change Filtration System (3/8\") with High Loop "},"MQ3":{"s":"MQ3","n":"MQ3 Triple Stage Undersink Quick-Change Filtration System with High Loop Fauce"},"MQ3 (3/8)":{"s":"MQ3 (3/8)","n":"MQ3 Triple Stage Undersink Quick-Change Filtration System (3/8\") with High Loo"},"MB1":{"s":"MB1","n":"MB1 Two Stage in One Inline High Flow Water Filter System"},"MB2":{"s":"MB2","n":"MB2 Twin High Flow Inline Water Filter System."},"MB3":{"s":"MB3","n":"MB3 Triple High Flow Inline Water Filter System"},"AC-2-P1-BL":{"s":"AC-2-P1-BL","n":"AC-2-P1-BL Single mounting Clip for MB1 system"},"MWF-MX1-15":{"s":"MWF-MX1-15","n":"MWF-MX1-15 Inline Undersink Water Filtration System (15mm connection) inc MX-P"},"MWF-MX1-20":{"s":"MWF-MX1-20","n":"MWF-MX1-20 Inline Undersink Water Filtration System (20mm connection) inc MX-P"},"RO-MR3":{"s":"RO-MR3","n":"3-Stage Reverse Osmosis Underink System with 12L external tank & GAC/Mineral F"},"RO-MR5":{"s":"RO-MR5","n":"5-Stage Reverse Osmosis Undersink System with booster pump, micro-computer, Hi"},"MR-ROU-302B":{"s":"MR-ROU-302B","n":"5 Stage Reverse Osmosis Undersink System with booster pump, micro-computer, Hi"},"MR-ROU-801BW":{"s":"MR-ROU-801BW","n":"5-Stage Reverse Osmosis Undersink System with booster pump, micro-computer, Hi"},"MRS-ROU-301B":{"s":"MRS-ROU-301B","n":"3 Stage Under Sink RO system Micro computer with booster pump internal 3LT tan"},"MWF-ROC-302A":{"s":"MWF-ROC-302A","n":"Countertop 5 Stage Reverse Osmosis System with booster pump, micro-computer & "},"MWF-ROC-801A":{"s":"MWF-ROC-801A","n":"Premium Countertop 5 Stage Reverse Osmosis System with booster pump, micro-com"},"MWF-CRO-600GF5- Standard Spec":{"s":"MWF-CRO-600GF5- Standard Spec","n":"MWF-600G 5 Stage Commercial Reverse Osmosis System - Standard. No tank & no fa"},"MWF-CRO-600GF5D - Dental Spec":{"s":"MWF-CRO-600GF5D - Dental Spec","n":"MWF-600G 4 Stage Commercial Reverse Osmosis System- Dental/Medical. 21L tank &"},"MWF-CRO-800GSV3":{"s":"MWF-CRO-800GSV3","n":"MWF-CRO-800GSV3 Commercial RO with 304 Cover and Frame"},"RO-105":{"s":"RO-105","n":"Micron RO Pressure Tank Series. 2L. No Stand."},"RO-120":{"s":"RO-120","n":"Micron RO Pressure Tank Series. 8L"},"RO-35":{"s":"RO-35","n":"Micron RO Pressure Tank Series. 35 L"},"RO-1070":{"s":"RO-1070","n":"Micron RO Pressure Tank Series. 60L"},"TP-100":{"s":"TP-100","n":"Micron Commercial RO Pressure Tank Series. 100L 3/8\" Tank Valve. With stand."},"MT-05":{"s":"MT-05","n":"Micron MT Quick-Change Cartridge Series- 5 Micron PP Sediment Filter MT-05"},"MT-33":{"s":"MT-33","n":"Micron MT Quick-Change Cartridge Series- Coconut Shell Granular Activated Carb"},"MT-33NS":{"s":"MT-33NS","n":"Micron MT Quick-Change Cartridge Series- Granular Activated Carbon Acid Wash w"},"MT-33-PH":{"s":"MT-33-PH","n":"Micron MT Quick-Change Cartridge Series- Combined Granular Activated Carbon & "},"MT-34":{"s":"MT-34","n":"Micron MT Quick-Change Cartridge Series- Post Carbon- Coconut Shell Granular A"},"MT-34ALK":{"s":"MT-34ALK","n":"Micron MT Quick-Change Cartridge Series- Granular Activated Carbon GAC & Alkal"},"MT-CTO":{"s":"MT-CTO","n":"Micron MT Quick-Change Cartridge Series- Coconut Shell Carbon Block 5 Micron F"},"MT-DI":{"s":"MT-DI","n":"Micron MT Quick-change Cartridge Series- Deionised Filter MT-DI"},"MT-GAC":{"s":"MT-GAC","n":"MT-GAC Quick change GAC post filter"},"MT-HF":{"s":"MT-HF","n":"Micron MT Quick-Change Cartridge Series- UF Hollow Fiber MT-HF"},"MT-M":{"s":"MT-M","n":"Micron MT Quick-Change Cartridge Series- Mineral Filter MT-M"},"MT-PC":{"s":"MT-PC","n":"Micron MT Quick-Change Cartridge Series- 5 Micron PP Sediment + CTO Carbon Blo"},"MT-RO50":{"s":"MT-RO50","n":"Micron MT Quick-Change Cartridge Series- Micron RO Membrane Filter MT-RO50"},"MB-01":{"s":"MB-01","n":"Micron MB Quick-Change Cartridge Series- 1 Micron PP Sediment Filter MB-01 2.5"},"MB-05":{"s":"MB-05","n":"Micron MB Quick-Change Cartridge Series- 5 Micron PP Sediment Filter MB-05 2.5"},"MB-33":{"s":"MB-33","n":"Micron MB Quick-Change Cartridge Series- Coconut Shell Granular Activated Carb"},"MB-33NS":{"s":"MB-33NS","n":"Micron MB Quick-Change Cartridge Series- CTO Carbon Block with Nano Silver Fil"},"MB-33-PH":{"s":"MB-33-PH","n":"Micron MB Quick-Change Cartridge Series- Anti Scale. Combined Granular Activat"},"MB-34M":{"s":"MB-34M","n":"Micron MB Quick-Change Cartridge Series- Granular Activated Carbon & Mineral F"},"MB-CTO":{"s":"MB-CTO","n":"Micron MB Quick-Change Cartridge Series- Coconut Shell CTO Carbon Block 5 Micr"},"MB-DI":{"s":"MB-DI","n":"Micron MB Quick-Change Cartridge Series- Deionised Filter MB-DI 2.5\" X 10\""},"MB-M":{"s":"MB-M","n":"Micron MB Quick-Change Cartridge Series- Mineral Filter MB-M 2.5\" X 10\""},"MB-PC":{"s":"MB-PC","n":"Micron MB Quick-Change Cartridge Series- 5 Micron PP Sediment + CTO Carbon Blo"},"MB-PCA":{"s":"MB-PCA","n":"Micron MB Quick-Change Cartridge Series- 5 Micron PP Sediment + CTO with Anti-"},"MB-R":{"s":"MB-R","n":"Micron MB Quick-Change Cartridge Series- Cation Resin Filter MB-R 2.5\" X 10\""},"MB-RO800":{"s":"MB-RO800","n":"MB-RO800 MB Quick Change 800G RO Membrane"},"MBS-34M":{"s":"MBS-34M","n":"Micron Water Filters MB Series Quick Change GAC + Mineral Filter 2.5\" x 5\""},"MR-01":{"s":"MR-01","n":"Micron MR Quick-Change Cartridge Series- 1 Micron PP Sediment Filter MR-01"},"MR-05":{"s":"MR-05","n":"Micron MR Quick-Change Cartridge Series- 5 micron PP Sediment Filter MR-05"},"MR-33":{"s":"MR-33","n":"Micron MR Quick-Change Cartridge Series- Coconut Shell Granular Activated Carb"},"MR-34ALK":{"s":"MR-34ALK","n":"Micron MR Quick-Change Cartridge Series- Granular Activated Carbon & Alkaline "},"MR-34M":{"s":"MR-34M","n":"Micron MR Quick-Change Cartridge Series- Granular Activated Carbon & Mineral F"},"MR-CTO":{"s":"MR-CTO","n":"Micron MR Quick-Change Cartridge Series- Coconut Shell CTO Carbon Block 5 Micr"},"MR-DI":{"s":"MR-DI","n":"Micron MR Quick-Change Cartridge Series- Deionised Filter MR-DI"},"MR-HF":{"s":"MR-HF","n":"Micron MR Quick-Change Cartridge Series- UF Hollow Fiber Filter MR-HF"},"MR-PC":{"s":"MR-PC","n":"Micron MR Quick-Change Cartridge Series- 5 micron PP Sediment + CTO Carbon Blo"},"MR-R050":{"s":"MR-R050","n":"Micron MR Quick-Change Cartridge Series - RO Membrane MR-RO50"},"MRS-34M":{"s":"MRS-34M","n":"MRS Quick change filter- 50% GAC coconut shell carbon with 50% mineral stone f"},"MRS-PC":{"s":"MRS-PC","n":"MRS Quick change filter- 5micron PP + CTO carbon block filter"},"MRS-RO50":{"s":"MRS-RO50","n":"S3S Quick change filter- 50G RO membrane"},"MX-01":{"s":"MX-01","n":"Micron MX Series 1 Micron PP Sediment Filter MX-01 2.5\" x 10\""},"MX-05":{"s":"MX-05","n":"Micron MX Series 5 Micron PP Sediment Filter MX-05 2.5\" x 10\""},"MX-CTO":{"s":"MX-CTO","n":"Micron MX Series Coconut Shell CTO Carbon Block 5 Micron Filter MX-CTO 2.5\" x "},"MX-DI":{"s":"MX-DI","n":"Micron MX Series Deionised Filter MX-DI 2.5\" x 10\""},"MX-GAC":{"s":"MX-GAC","n":"Micron MX Series Coconut Shell Granular Activated Carbon Filter MX-GAC 2.5\" x "},"MX-PC":{"s":"MX-PC","n":"Micron MX Series 5 Micron PP Sediment + CTO Carbon Block Filter MX-PC 2.5\" x 1"},"MX-RES":{"s":"MX-RES","n":"Micron MX Series Resin Filter MX-RES 2.5\" x 10\""},"MU05-01":{"s":"MU05-01","n":"Micron MU Series- 1 Micron PP Sediment Filter MU05-01 2.5\" x 5\""},"MU05-05":{"s":"MU05-05","n":"Micron MU Series- 5 Micron PP Sediment Filter MU05-05 2.5\" x 5\""},"MU05-5SPL":{"s":"MU05-5SPL","n":"Micron MU Series- 5 Micron Pleated Sediment MU05-5SPL 2.5\" x 5\""},"MU05-CTO":{"s":"MU05-CTO","n":"Micron MU Series- Coconut Shell CTO Carbon Block 5 Micron Filter MU05-CTO 2.5\""},"MU05-GAC":{"s":"MU05-GAC","n":"Micron MU Series- Coconut Shell Granular Activated Carbon Filter MU05-GAC 2.5\""},"MWF-0505":{"s":"MWF-0505","n":"5\" 5 micron PP sediment filter"},"MU10-01G":{"s":"MU10-01G","n":"Micron MU Series- Grooved Melt Blown 1 Micron Sediment Filter MU10-01 2.5\" x 1"},"MU10-05":{"s":"MU10-05","n":"Micron MU Series- 5 Micron Spun Polypropylene Sediment Filter MU10-05 2.5\" x 1"},"MU10-05G":{"s":"MU10-05G","n":"Micron MU Series- Grooved Melt Blown 5 Micron Sediment Filter MU10-05G 2.5\" x "},"MU10-5SPL":{"s":"MU10-5SPL","n":"Micron MU Series - 5 Micron Pleated Sediment Filter MU10-5SPL 2.5\" x 10\""},"MU10-CTO-UD":{"s":"MU10-CTO-UD","n":"Micron MU Series- UD Coconut Shell CTO Carbon Block Filter MU10-CTO 2.5\" x 10\""},"MU10-DI":{"s":"MU10-DI","n":"Micron MU Series- Deionised Resin Filter MU10-DI 2.5\" x 10\""},"MU10-GAC":{"s":"MU10-GAC","n":"Micron MU Series-GAC- Coconut Shell Granular Activated Carbon Filter MU10 2.5\""},"MU10-PHOS":{"s":"MU10-PHOS","n":"Anti scale - Granular Activated Carbon & Polyphosphate Filter"},"MU10-RES":{"s":"MU10-RES","n":"Micron MU Series- Resin Filter MU10 2.5\" x 10\""},"MWF10-1SPP":{"s":"MWF10-1SPP","n":"Micron Whole House MWF10 Series- 1 Micron Spun Polypropylene Sediment Filter 1"},"MWF10-5SPL":{"s":"MWF10-5SPL","n":"Micron Whole House MWF10 Series- 5 Micron Pleated Sediment Filter 10\" x 4.5\""},"MWF10-5SPP":{"s":"MWF10-5SPP","n":"Micron Whole House MWF10 Series- 5 Micron Spun Polypropylene Sediment Filter 1"},"MWF10-CTO":{"s":"MWF10-CTO","n":"Micron Whole House MWF10 Series- Coconut Shell CTO Carbon Block Filter 10\" x 4"},"MWF10-RES":{"s":"MWF10-RES","n":"Micron Whole House MWF10 Series- Resin Water Softening Filter 10\" x 4.5\""},"MWF10-T33GAC":{"s":"MWF10-T33GAC","n":"Micron Whole House MWF10 Series- T33 Granular Activated Carbon Filter 10\" x 4."},"WH10-1SED":{"s":"WH10-1SED","n":"1 Micron Sediment Filter"},"WH10-5SED":{"s":"WH10-5SED","n":"5 Micron Sediment Filter"},"WH10-CTO":{"s":"WH10-CTO","n":"5 Micron CTO Coconut Shell Carbon Block filter"},"WH10-GAC":{"s":"WH10-GAC","n":"Granular Active Carbon Filter"},"MWF20-1SPP":{"s":"MWF20-1SPP","n":"Micron Whole House MWF20 Series-1 Micron Spun Polypropylene Sediment Filter 20"},"MWF20-5SPL":{"s":"MWF20-5SPL","n":"Micron Whole House MWF20 Series- 5 Micron Pleated Sediment Filter 20\" x 4.5\""},"MWF20-5SPP":{"s":"MWF20-5SPP","n":"Micron Whole House MWF20 Series- 5 Micron Spun Polypropylene Sediment Filter 2"},"MWF20S-5SPL":{"s":"MWF20S-5SPL","n":"Micron Whole House MWF20 Series- 5 Micron Pleated Sediment Filter 20\" x 2.5\""},"MWF20-CTO":{"s":"MWF20-CTO","n":"Micron Whole House MWF20 Series- Coconut Shell CTO Carbon Block Filter 20\" x 4"},"MWF20-GAC KDF55":{"s":"MWF20-GAC KDF55","n":"Micron Whole House MWF20 Series-GAC & KDF 55 Filter 20\" x 4.5\""},"MWF20-PHOS":{"s":"MWF20-PHOS","n":"Micron Whole House MWF20 Series- Granular Activated Carbon & Polyphosphate Bal"},"MWF20-RES":{"s":"MWF20-RES","n":"Micron Whole House MWF20 Series- Resin Water Softening Filter 20\" x 4.5\""},"MWF20-T33GAC":{"s":"MWF20-T33GAC","n":"Micron Whole House MWF20 Series- T33 Granular Activated Carbon Filter 20\" x 4."},"WH20-1SED":{"s":"WH20-1SED","n":"1 Micron Sediment Filter [WH20-1SED]"},"WH20-5SED":{"s":"WH20-5SED","n":"WH20-5SED : 5 Micron Sediment Filter"},"WH20-5SPL":{"s":"WH20-5SPL","n":"5 Micron Pleated Sediment"},"WH20-CTO":{"s":"WH20-CTO","n":"CTO Carbon Block Filter"},"WH20-DI":{"s":"WH20-DI","n":"Deionised Filter"},"WH20-GAC":{"s":"WH20-GAC","n":"Granular Activated Carbon Filter"},"WH20-GAC KDF55":{"s":"WH20-GAC KDF55","n":"Granular Activated Carbon & KDF 55 Filter"},"WH20-PFAS":{"s":"WH20-PFAS","n":"Carbon PFAS Reduction Filter"},"WH20-PHOS":{"s":"WH20-PHOS","n":"Granular Activated Carbon & Polyphosphate Ball Filter"},"WH20-RES+":{"s":"WH20-RES+","n":"High Capacity Resin Water Softening Filter"},"MWF20-CRO-5SPP":{"s":"MWF20-CRO-5SPP","n":"Micron Commercial RO Filter Series- 5 micron Spun Polypropylene Sediment Filte"},"MWF20-CRO-CTO":{"s":"MWF20-CRO-CTO","n":"Commercial RO 2.5 x 20\" CTO Carbon Block [MWF20-CRO-CTO]"},"MWF20-CRO-RO150":{"s":"MWF20-CRO-RO150","n":"Micron Commercial RO Filter Series- Reverse Osmosis Membrane 150G"},"MWF20-CRO-UDFDI":{"s":"MWF20-CRO-UDFDI","n":"Micron Commercial RO Filter Series -UDF Deionised Filter 2.5\" x 20\""},"MWF20-CRO-UDFGAC":{"s":"MWF20-CRO-UDFGAC","n":"Micron Commercial RO Filter Series- Coconut Shell Granular Activated Carbon 2."},"MWF-CRO-CTO":{"s":"MWF-CRO-CTO","n":"Micron Commercial RO Filter Series- Coconut Shell CTO Carbon Block 5 Micron Fi"},"MWF-CRO-IC":{"s":"MWF-CRO-IC","n":"Micron Commercial RO Filter Series- Inline Post Carbon"},"MWF-CRO-UDFGAC":{"s":"MWF-CRO-UDFGAC","n":"Micron Commercial RO Filter Series- Coconut Shell Granular Activated Carbon 2."},"YTB-10BL":{"s":"YTB-10BL","n":"YTB-10BL 10\" Big Blue Filter Housing, 1\" BSP port, bule housing with black cap"},"YTB-20BL":{"s":"YTB-20BL","n":"YTB-20BL 4.5x20\" Filter Housing with black cap"},"YTB-20-300BL":{"s":"YTB-20-300BL","n":"YTB-20-300BL 4.5x20\" 300 series Filter Housing with black cap"},"O-14":{"s":"O-14","n":"5\" and 10\" Housing O-Ring 84 x 3.5mm NBR Food Grade"},"O-BB":{"s":"O-BB","n":"10\" and 20\" Housing O-Ring 140 x 5.3mm NBR Food Grade"},"AR-BB":{"s":"AR-BB","n":"Wrench for Big Blue housing, White"},"MW10H-38":{"s":"MW10H-38","n":"Water Softener MW10H-38 With Resin Outdoor"},"MW15H-1040":{"s":"MW15H-1040","n":"Water Softener MW15H-1040,With Resin Indoor"},"MW18H-1015":{"s":"MW18H-1015","n":"Water Softener MW18H-1015,With Resin Indoor"},"MW18H-1135":{"s":"MW18H-1135","n":"Water Softener MW18H-1135,With Resin Indoor"},"SC-20L-E":{"s":"SC-20L-E","n":"SC-20L-E Cabinet SC-20L-1035 10\" x 35\" Elec LED"},"SC-20L-M-12":{"s":"SC-20L-M-12","n":"SC-20L-M-12 20L Resin Tank"},"UV-6A":{"s":"UV-6A","n":"40W UV Ray Sterilizer set"},"UV410":{"s":"UV410","n":"UV Lamp for WH302UV"},"QS410":{"s":"QS410","n":"Quartz Sleeve for UV410 Lamp"},"UV302COVER":{"s":"UV302COVER","n":"UV protective Front cover"},"UV302KIT":{"s":"UV302KIT","n":"UV Twin Maintenance Bundle"},"MWF-S7":{"s":"MWF-S7","n":"Universal Shower Filter Brushed Silver"},"S7-1":{"s":"S7-1","n":"S7-1 Replacement Filter for SF-1 Shower filter"},"S7-Adapter":{"s":"S7-Adapter","n":"S7-Adapter Shower filter Adapter Silver"},"MWF-DM1":{"s":"MWF-DM1","n":"MWF-DM1 Dual line TDS meter 2 sensor monitor (RO/DI)"},"TDS pen":{"s":"TDS pen","n":"TDS Test Pen"},"AG-2.5":{"s":"AG-2.5","n":"AG-2.5 Vertical Hydraulic Gauge 2.5"},"PR-P14-50A":{"s":"PR-P14-50A","n":"Pressure Limiting Valve/Dual Check Valve 350kPa 1/4\" OD, QC Tube"},"JE-12-6-4092-1":{"s":"JE-12-6-4092-1","n":"Leak Stop Valve 1/4\" tube"},"ABV-2P":{"s":"ABV-2P","n":"Tank Ball Valve 8mm (1/4\") OD x 8mm (1/4\") FI. NPTF. Right Angle"},"ABV-3P":{"s":"ABV-3P","n":"Tank Ball Valve 10mm (3/8\") OD x 8mm (1/4\") FI. NPTF. Right Angle"},"LS-CV1344":{"s":"LS-CV1344","n":"Straight Valve 8mm (1/4\") x 8mm (1/4\") OD, QC"},"LS-CV1366":{"s":"LS-CV1366","n":"Straight Valve 10mm (3/8\") x 10mm (3/8\") OD, QC"},"LS-CV3344":{"s":"LS-CV3344","n":"Straight Check Valve 8mm (1/4\") x 8mm (1/4\") OD, QC Tube"},"LS-CV3366":{"s":"LS-CV3366","n":"Straight Check Valve 10mm (3/8\") x 10mm (3/8\") OD, QC Tube"},"AV-4":{"s":"AV-4","n":"AV-4 Auto Shut off valve, Jaco type *For MQ4 system (w/o pump)"},"A-AT12W2":{"s":"A-AT12W2","n":"15mm (1/2\") White PE Tube, QC. 2 metres"},"A-AT12W3":{"s":"A-AT12W3","n":"15mm (1/2\") White PE Tube, QC. 3 metres"},"A-AT12W10":{"s":"A-AT12W10","n":"15mm (1/2\") White PE Tube, QC. 10 metres"},"A-AT14W2":{"s":"A-AT14W2","n":"8mm (1/4\") White PE Tube, QC. 2 metres"},"A-AT14W3":{"s":"A-AT14W3","n":"8mm (1/4\") White PE Tube, QC. 3 metres"},"A-AT14W10":{"s":"A-AT14W10","n":"8mm (1/4\") White PE Tube, QC. 10 metres"},"A-AT38W2":{"s":"A-AT38W2","n":"10mm (3/8\") White PE Tube, QC. 2 metres"},"A-AT38W3":{"s":"A-AT38W3","n":"10mm (3/8\") White PE, Tube, QC. 3 metres"},"A-AT38W10":{"s":"A-AT38W10","n":"10mm (3/8\") White PE Tube, QC. 10 metres"},"AUC0505W":{"s":"AUC0505W","n":"Straight Connector 8mm (5/16\") Tube x 8mm (5/16\") Tube OD, QC"},"AUC0706W":{"s":"AUC0706W","n":"Straight Connector 15mm (1/2\") Tube x 10mm (3/8\") Tube OD, QC"},"AUC0707W":{"s":"AUC0707W","n":"Straight Connector 15mm (1/2\") Tube x 15mm (1/2\") Tube OD, QC"},"LS-UC0404":{"s":"LS-UC0404","n":"Straight Connector 8mm (1/4\") Tube x 8mm (1/4\") Tube OD, QC"},"LS-UC0604":{"s":"LS-UC0604","n":"Straight Connector 10mm (3/8\") Tube x 8mm (1/4\") Tube OD, QC"},"LS-UC0606":{"s":"LS-UC0606","n":"Straight Connector 10mm (3/8\") Tube x 10mm (3/8\") Tube OD, QC"},"LS-UE0404":{"s":"LS-UE0404","n":"Union Elbow 8mm (1/4\") Tube OD x 8mm (1/4\") Tube OD"},"LS-UE0606":{"s":"LS-UE0606","n":"Union Elbow 10mm (3/8\") Tube OD x10mm (3/8\") Tube OD"},"ATEU0505W":{"s":"ATEU0505W","n":"Stem Elbow 8mm (5/16\") Stem x 8mm (5/16\") Tube OD, QC"},"ATEU0506W":{"s":"ATEU0506W","n":"Stem Elbow 10mm (3/8\") Stem x 8mm (5/16\") Tube OD"},"ATEU0707W":{"s":"ATEU0707W","n":"Stem Elbow 15mm (1/2\") Stem x 15mm (1/2\") Tube OD, QC"},"LS-SE0404":{"s":"LS-SE0404","n":"Stem Elbow 1/4\" Tube x 1/4\" Stem"},"LS-SE0406":{"s":"LS-SE0406","n":"Stem Elbow 10mm (3/8\") Stem x 8mm (1/4\") Tube OD, QC"},"LS-SE0606":{"s":"LS-SE0606","n":"Stem Elbow 10mm (3/8\") Stem x 10mm (3/8\") Tube OD, QC"},"AEL0605":{"s":"AEL0605","n":"Stem Enlarger 8mm (5/16\") Stem x 10mm (3/8\") Tube OD, QC"},"AEL0706":{"s":"AEL0706","n":"Stem Enlarger 10mm (3/8\") Stem x 15mm (1/2\") Tube OD, QC"},"LS-SR0406":{"s":"LS-SR0406","n":"Stem Adapter 8mm (1/4\") Tube x 10mm (3/8\") Stem OD, QC"},"LS-UT0404":{"s":"LS-UT0404","n":"Union Tee 8mm (1/4\") x 8mm (1/4\") x 8mm (1/4\") OD, QC"},"LS-UT0406":{"s":"LS-UT0406","n":"Union Tee 10mm (3/8\") x 8mm (1/4\") x 10mm (3/8\") OD, QC Tube"},"LS-UT0606":{"s":"LS-UT0606","n":"Union Tee 10mm (3/8\") x 10mm (3/8\") x 10mm (3/8\") OD, QC"},"LS-SRT0606":{"s":"LS-SRT0606","n":"Stem Run Tee 10mm (3/8\") Tube OD x 10mm (3/8\") Tube OD"},"LS-TWD0404":{"s":"LS-TWD0404","n":"Two Way Divider 8mm (1/4\") x 8mm (1/4\") x 8mm (1/4\") OD, QC"},"LS-TWD0606":{"s":"LS-TWD0606","n":"Two Way Divider 10mm (3/8\") x 10mm (3/8\") x 10mm (3/8\") OD, QC"},"ABU0707":{"s":"ABU0707","n":"Bulkhead Union 15mm (1/2?) Tube OD x 15mm (1/2?) Tube OD"},"LS-BU0404":{"s":"LS-BU0404","n":"Bulkhead Union 8mm (1/4) Tube OD x 8mm (1/4) Tube OD"},"LS-BU0606":{"s":"LS-BU0606","n":"Bulkhead Union 10mm (3/8\") Tube OD x 10mm (3/8\") Tube OD"},"AFAB0407CW":{"s":"AFAB0407CW","n":"Tap Adapter 8mm (1/4\") OD x 15mm (1/2\") Female BSP"},"AFAB0607CW":{"s":"AFAB0607CW","n":"Tap Adapter 10mm (3/8\") OD x 15mm (1/2\") Female BSP"},"AMCBT0607":{"s":"AMCBT0607","n":"Male Connector 10mm (3/8\") Tube x 15mm (1/2\") BSP Thread, OD"},"QF-05-1/4S":{"s":"QF-05-1/4S","n":"Integrated Feed Water Connection 15mm (1/2\") M/I BSP x 15mm (1/2\") F/I loose n"},"QF-05-3/8S":{"s":"QF-05-3/8S","n":"Integrated Feed Water Connection 15mm (1/2\") M/I BSP x 15mm (1/2\") F/I loose n"},"SSLS-01-4*3F":{"s":"SSLS-01-4*3F","n":"Lead Free 3/8 Feed Water Adapter"},"SSQF-05-1/4S":{"s":"SSQF-05-1/4S","n":"Feed water Adapter"},"LOCK14":{"s":"LOCK14","n":"Locking Clip 8mm (1/4\") Tube. 10Pk"},"LOCK38":{"s":"LOCK38","n":"Locking Clip 10mm (3/8\") Tube. 10Pk"},"P304":{"s":"P304","n":"Tube End Stop 8mm (1/4\") Tube OD, QC"},"ACW-S14Q":{"s":"ACW-S14Q","n":"Drain Clamp 8mm (1/4\") Stainless Steel (64mm x47mm)"}};
+const TREE=[{"g":"Whole House","s":[{"e":"10\" Systems","k":["MWF-WH101","MWF-WH102","MWF-WH103","MWF-WH201SLIM"]},{"e":"20\" 300 Series","k":["WH301","WH302","WH302A","WH302UV","WH303","WH303A","WH303A/X","MWF-WH203A/X","MWF-WH203A/X-UV","MWF-WHSMFX303"]},{"e":"Frames & mounts","k":["Whole home Frame - Ali","Whole home wall mount - Ali"]}]},{"g":"Undersink","s":[{"e":"MQ Quick-Change","k":["MQ1","MQ1 (3/8\")","MQ2","MQ2 (3/8)","MQ3","MQ3 (3/8)"]},{"e":"MB Inline High Flow","k":["MB1","MB2","MB3","AC-2-P1-BL"]},{"e":"MX Inline","k":["MWF-MX1-15","MWF-MX1-20"]}]},{"g":"Reverse Osmosis","s":[{"e":"Undersink RO","k":["RO-MR3","RO-MR5","MR-ROU-302B","MR-ROU-801BW","MRS-ROU-301B"]},{"e":"Countertop RO","k":["MWF-ROC-302A","MWF-ROC-801A"]},{"e":"Commercial RO","k":["MWF-CRO-600GF5- Standard Spec","MWF-CRO-600GF5D - Dental Spec","MWF-CRO-800GSV3"]},{"e":"RO tanks","k":["RO-105","RO-120","RO-35","RO-1070","TP-100"]}]},{"g":"Cartridges","s":[{"e":"MT \u2014 undersink quick-change","k":["MT-05","MT-33","MT-33NS","MT-33-PH","MT-34","MT-34ALK","MT-CTO","MT-DI","MT-GAC","MT-HF","MT-M","MT-PC","MT-RO50"]},{"e":"MB \u2014 inline quick-change","k":["MB-01","MB-05","MB-33","MB-33NS","MB-33-PH","MB-34M","MB-CTO","MB-DI","MB-M","MB-PC","MB-PCA","MB-R","MB-RO800","MBS-34M"]},{"e":"MR / MRS \u2014 RO quick-change","k":["MR-01","MR-05","MR-33","MR-34ALK","MR-34M","MR-CTO","MR-DI","MR-HF","MR-PC","MR-R050","MRS-34M","MRS-PC","MRS-RO50"]},{"e":"MX \u2014 2.5\" x 10\" inline","k":["MX-01","MX-05","MX-CTO","MX-DI","MX-GAC","MX-PC","MX-RES"]},{"e":"MU \u2014 standard 5\" & 10\"","k":["MU05-01","MU05-05","MU05-5SPL","MU05-CTO","MU05-GAC","MWF-0505","MU10-01G","MU10-05","MU10-05G","MU10-5SPL","MU10-CTO-UD","MU10-DI","MU10-GAC","MU10-PHOS","MU10-RES"]},{"e":"10\" Whole House","k":["MWF10-1SPP","MWF10-5SPL","MWF10-5SPP","MWF10-CTO","MWF10-RES","MWF10-T33GAC","WH10-1SED","WH10-5SED","WH10-CTO","WH10-GAC"]},{"e":"20\" 200 Series","k":["MWF20-1SPP","MWF20-5SPL","MWF20-5SPP","MWF20S-5SPL","MWF20-CTO","MWF20-GAC KDF55","MWF20-PHOS","MWF20-RES","MWF20-T33GAC"]},{"e":"20\" 300 Series","k":["WH20-1SED","WH20-5SED","WH20-5SPL","WH20-CTO","WH20-DI","WH20-GAC","WH20-GAC KDF55","WH20-PFAS","WH20-PHOS","WH20-RES+"]},{"e":"Commercial RO","k":["MWF20-CRO-5SPP","MWF20-CRO-CTO","MWF20-CRO-RO150","MWF20-CRO-UDFDI","MWF20-CRO-UDFGAC","MWF-CRO-CTO","MWF-CRO-IC","MWF-CRO-UDFGAC"]}]},{"g":"Housings & spares","s":[{"e":"Housings","k":["YTB-10BL","YTB-20BL","YTB-20-300BL"]},{"e":"O-rings & spanners","k":["O-14","O-BB","AR-BB"]}]},{"g":"Softeners","s":[{"e":"Cabinet softeners","k":["MW10H-38","MW15H-1040","MW18H-1015","MW18H-1135","SC-20L-E","SC-20L-M-12"]}]},{"g":"UV","s":[{"e":"UV systems & lamps","k":["UV-6A","UV410","QS410","UV302COVER","UV302KIT"]}]},{"g":"Shower","s":[{"e":"Shower filters","k":["MWF-S7","S7-1","S7-Adapter"]}]},{"g":"Meters & tools","s":[{"e":"Test & monitor","k":["MWF-DM1","TDS pen","AG-2.5"]},{"e":"Valves","k":["PR-P14-50A","JE-12-6-4092-1","ABV-2P","ABV-3P","LS-CV1344","LS-CV1366","LS-CV3344","LS-CV3366","AV-4"]}]},{"g":"Fittings & tube","s":[{"e":"PE tube","k":["A-AT12W2","A-AT12W3","A-AT12W10","A-AT14W2","A-AT14W3","A-AT14W10","A-AT38W2","A-AT38W3","A-AT38W10"]},{"e":"Connectors & elbows","k":["AUC0505W","AUC0706W","AUC0707W","LS-UC0404","LS-UC0604","LS-UC0606","LS-UE0404","LS-UE0606","ATEU0505W","ATEU0506W","ATEU0707W","LS-SE0404","LS-SE0406","LS-SE0606","AEL0605","AEL0706","LS-SR0406"]},{"e":"Tees & dividers","k":["LS-UT0404","LS-UT0406","LS-UT0606","LS-SRT0606","LS-TWD0404","LS-TWD0606"]},{"e":"Unions & bulkheads","k":["ABU0707","LS-BU0404","LS-BU0606"]},{"e":"Adapters & feed","k":["AFAB0407CW","AFAB0607CW","AMCBT0607","QF-05-1/4S","QF-05-3/8S","SSLS-01-4*3F","SSQF-05-1/4S"]},{"e":"Clips & misc","k":["LOCK14","LOCK38","P304","ACW-S14Q"]}]}];
+
+/* Every ranged SKU, by code — the 43 on the bay carry class, tier and launch MIN/MAX. */
+const CODES={}; RANGE.forEach(r=>{ CODES[r.s]=r; });
+/* Any code in the business, ranged or not. Off-range lines have no class and no launch default. */
+const sku = c => CODES[c] || (CAT[c] ? {...CAT[c], c:"E", t:3, f:"Off range", m:[[null,null],[null,null],[null,null]]}
+                                     : {s:c,n:c,c:"E",t:3,f:"Off range",m:[[null,null],[null,null],[null,null]]});
+const onBay  = c => baySet().has(c);
+const inRange= c => !!CODES[c];
+const touched= c => { const o=S.stock[c]; return !!o && (o.cur!==null || +o.min>0 || +o.max>0); };
+
+
+/* The 12 steps — these MUST stay word-for-word identical to the
+   steps on the Basecamp card, or the rep is ticking two different lists. */
+const STEPS = [
+  "Before photo taken",
+  "Display clean, in position, header board on",
+  "No competitor stock in our bay",
+  "Every SKU counted",
+  "Faced and fronted, gaps filled",
+  "Prices right — shelf ticket AND their system",
+  "Brochures and spec sheets topped up",
+  "MIN cards in the right position",
+  "Order raised, or nothing needed",
+  "After photo taken",
+  "Every action has an owner and a date",
+  "Next visit booked"
+];
+
+const NEW = () => ({
+  v:2, id:"V"+Date.now().toString(36).toUpperCase(),
+  f:{ date:new Date().toISOString().slice(0,10), tier:"Tier 2" },
+  t:{}, stock:{}, actions:[], prior:null, recv:false
+});
+/* Every Galvins branch. Add or remove a line and re-upload the file. */
+const BRANCH_LIST = ["Bassendean","Broome","Bunbury","Busselton","Clarkson","Darwin",
+  "Ellenbrook","Esperance","Kelmscott","Mandurah","Nedlands","Osborne Park","Perth",
+  "Rockingham","Spearwood","Wangara","Welshpool","Willetton","Yanchep"];
+
+/* ── Pre-loaded branch setup ───────────────────────────────────────────────
+   Empty in a fresh file. Export the setup from a phone that has the branches
+   built (Export setup, in section 6), send it back, and it gets baked in here —
+   then every rep who opens this file for the first time already has each
+   branch's bay and MIN/MAX, with nothing to set up and nothing to import.
+   Shape: { "Perth": { tier:"Tier 1", storeno:"", bay:["MT-05",...],
+                       minmax:{ "MT-05":[2,6], ... } }, ... }                  */
+const SEED = {};
+
+let S = NEW(), BRANCHES = [];
+const LS="micron.visit.v2", LSB="micron.branches.v1", LSV="micron.visits.v1";
+
+/* The branch record lives in this phone's own storage. No account, no server.
+   One rep per branch is the normal case, so this carries MIN/MAX from visit to
+   visit correctly. Use Backup to move it to another phone. */
+const readStore = () => { try{ return JSON.parse(localStorage.getItem(LSB)||"{}"); }catch(e){ return {}; } };
+const writeStore = o => { try{ localStorage.setItem(LSB, JSON.stringify(o)); return true; }catch(e){ return false; } };
+const persist=()=>{ try{ localStorage.setItem(LS, JSON.stringify({...S, edit:false, q:""})); }catch(e){} };
+const E=(t,c,h)=>{const e=document.createElement(t); if(c)e.className=c; if(h!==undefined)e.innerHTML=h; return e;};
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const shortDate = s => { const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(s||""); 
+  return m ? (+m[3])+" "+MON[+m[2]-1] : (s||""); };
+const TICK='<svg viewBox="0 0 16 16"><polyline points="2.5,8.5 6.2,12 13.5,4"/></svg>';
+
+const ti = () => { const t=S.f.tier||""; return t.indexOf("Tier 1")===0?0 : t.indexOf("Tier 3")===0?2 : 1; };
+/* The tier list is only the STARTING POINT. Branches differ — some carry a cut-down range
+   because of space — so each branch keeps its own bay, stored with its record. */
+const ranged = () => RANGE.filter(r => r.t >= ti()+1);
+const bayCodes = () => (S.bay && S.bay.length) ? S.bay : ranged().map(r=>r.s);
+const RPOS={}; RANGE.forEach((r,i)=>{ RPOS[r.s]=i; });
+const bay = () => { const c=bayCodes();
+  return c.slice().sort((a,b)=>(RPOS[a]!==undefined?RPOS[a]:900+c.indexOf(a))
+                               -(RPOS[b]!==undefined?RPOS[b]:900+c.indexOf(b))).map(sku); };
+const baySet = () => new Set(bayCodes());
+const custom = () => !!(S.bay && S.bay.length);
+/* Lines the rep counted that are not on this branch's bay. They go on the order and in the
+   report, but they never move the score — the score is about the bay this branch carries. */
+const extras = () => { const b=baySet();
+  return Object.keys(S.stock).filter(c=>!b.has(c) && touched(c)).map(sku); };
+const counting = () => bay().concat(extras());
+
+function toggleBay(code){
+  const c=bayCodes().slice(), i=c.indexOf(code);
+  if(i>=0){ c.splice(i,1);
+    /* Dropping a line also drops the launch MIN/MAX it was given, so it does not come back
+       as a phantom off-range line. Anything actually counted is kept — that was a real find. */
+    const o=S.stock[code]; if(o && (o.cur===null||o.cur===undefined)) delete S.stock[code];
+  } else c.push(code);
+  S.bay=c; persist(); saveBay();
+}
+/* The bay sticks to the branch straight away, before the visit is ever saved. */
+function saveBay(){
+  const n=S.f.branch; if(!n) return;
+  try{ const store=readStore(); store[n]={...(store[n]||{}), bay:S.bay}; writeStore(store); loadBranches(); }catch(e){}
+}
+function resetBay(){
+  if(!confirm("Reset this branch back to the "+(S.f.tier||"tier")+" list? Anything added here is removed.")) return;
+  S.bay=null; persist(); saveBay(); draw(); flash("Back to the "+(S.f.tier||"tier")+" list");
+}
+const st = k => (S.stock[k] ||= {cur:null, recv:null, min:null, max:null});
+
+function defaults(){
+  const i=ti(), inBay=baySet();
+  /* Changing the tier, or dropping a line from the bay, leaves a published MIN/MAX behind.
+     If nobody ever counted that line it is not a finding — clear it, so it cannot resurface
+     as a phantom off-range order. `d` marks a number that came from the published default. */
+  Object.keys(S.stock).forEach(k=>{ const o=S.stock[k];
+    if(o && o.d && !inBay.has(k) && (o.cur===null||o.cur===undefined)) delete S.stock[k]; });
+  bay().forEach(r=>{ const c=CODES[r.s]; if(!c) return;
+    const o=st(r.s), d=c.m[i];
+    if(o.min===null && d && d[0]!==null){ o.min=d[0]; o.d=true; }
+    if(o.max===null && d && d[1]!==null){ o.max=d[1]; o.d=true; } });
+}
+
+/* four-band reorder logic — identical to the system document */
+function band(o){
+  const c=o.cur, mn=+o.min||0, mx=+o.max||0;
+  if(c===null||c===undefined||c==="") return {k:"",l:"",q:0};
+  if(!mn && !mx) return {k:"n",l:"NO MIN/MAX",q:0};   /* off-range line, counted but no reorder point yet */
+  if(c===0 || (mn>0 && c<=mn/2)) return {k:"c",l:"CRITICAL",q:Math.max(0,mx-c)};
+  if(mn>0 && c<=mn)             return {k:"o",l:"ORDER",   q:Math.max(0,mx-c)};
+  if(mx>0 && c>=mx)             return {k:"v",l:"OVER",    q:0};
+  return {k:"k",l:"OK",q:0};
+}
+
+/* ── setup fields ─────────────────────────────────────────── */
+function drawSetup(){
+  const h=document.getElementById("setup"); h.innerHTML="";
+  const add=(k,l,type,opts,wide)=>{
+    const f=E("div","fl"+(wide?" w2":"")); f.appendChild(E("label",null,l));
+    let el;
+    if(type==="sel"){ el=E("select"); el.appendChild(E("option",null,"—"));
+      opts.forEach(o=>{const op=E("option",null,o); op.value=o; if(S.f[k]===o)op.selected=true; el.appendChild(op);}); }
+    else if(type==="branch"){
+      el=E("input"); el.type="text"; el.value=S.f[k]||""; el.setAttribute("list","branchlist"); el.placeholder="Type or pick";
+      const dl=E("datalist"); dl.id="branchlist";
+      BRANCHES.forEach(b=>{ const o=E("option"); o.value=b.branch; dl.appendChild(o); });
+      f.appendChild(dl);
+    } else { el=E("input"); el.type=type; el.value=S.f[k]||""; }
+    el.oninput=e=>{ S.f[k]=e.target.value; persist(); if(k==="tier") draw(); else chrome(); };
+    el.onchange=e=>{ S.f[k]=e.target.value; persist();
+      if(k==="tier"){
+        if(custom() && confirm("This branch has its own bay list. Replace it with the "+e.target.value+" list?")){
+          S.bay=null; saveBay();
+        }
+        draw();
+      }
+      else if(k==="branch"){ loadBranch(e.target.value); }
+      else chrome(); };
+    f.appendChild(el); h.appendChild(f);
+  };
+  add("branch","Branch","branch",null,1);
+  add("rep","Rep","text");
+  add("date","Date","date");
+  add("tier","Display tier","sel",["Tier 1","Tier 2","Tier 3"]);
+  add("next","Next visit","date");
+}
+
+function loadBranches(){
+  const store = readStore();
+  BRANCHES = BRANCH_LIST.map(n => store[n] ? {...store[n], branch:n} : {branch:n});
+  Object.keys(store).forEach(n => { if(!BRANCH_LIST.includes(n)) BRANCHES.push({...store[n], branch:n}); });
+  BRANCHES.sort((a,b)=>a.branch.localeCompare(b.branch));
+}
+
+/* Three sources, weakest first: what the file shipped with, what someone saved as this
+   branch's setup, then what the last real visit counted. The newest truth wins. */
+function loadBranch(name){
+  const b = BRANCHES.find(x=>x.branch===name) || {};
+  const seed = SEED[name] || {};
+  S.f.storeno = b.storeno || seed.storeno || "";
+  const tier = b.tier || seed.tier;
+  if(tier) S.f.tier = (String(tier).match(/Tier \d/)||[tier])[0];
+  S.bay = (b.bay && b.bay.length) ? b.bay.slice()
+        : (seed.bay && seed.bay.length) ? seed.bay.slice() : null;
+
+  const mm = o2 => { if(!o2) return; Object.keys(o2).forEach(k=>{ const o=st(k), v=o2[k];
+    if(Array.isArray(v)){ if(v[0]!=null) o.min=v[0]; if(v[1]!=null) o.max=v[1]; }
+    else { if(v.min!=null) o.min=v.min; if(v.max!=null) o.max=v.max; } }); };
+  mm(seed.minmax);
+  mm(b.minmax);
+  if(b.stock){
+    mm(b.stock);
+    if(b.lastVisit){ S.prior = {date:b.lastVisit, stock:b.stock};
+      flash("Last visit "+b.lastVisit+" loaded"); }
+  } else if(b.minmax || seed.minmax){
+    flash("Branch setup loaded");
+  }
+  persist(); draw();
+}
+
+/* ── the branch card: what is already on file, to check this visit against ── */
+function drawBranchCard(){
+  const host=document.getElementById("bcard"); host.innerHTML="";
+  const n=S.f.branch; if(!n) return;
+  const b=BRANCHES.find(x=>x.branch===n)||{}, seed=SEED[n]||{};
+  const have = !!(b.bay||b.minmax||b.stock||b.lastVisit||seed.bay||seed.minmax);
+  const list=bay(), set=list.filter(r=>{const o=st(r.s); return +o.min>0 && +o.max>0;}).length;
+
+  const c=E("div","bcard"+(have?"":" none"));
+  c.appendChild(E("h3",null,"On file for "+n));
+  if(!have){
+    c.appendChild(E("div","kv","Nothing saved for this branch yet. Set the bay and the MIN/MAX numbers, "+
+      "then tap <b>Save branch setup</b> — next time you open "+n+" they come straight back."));
+  } else {
+    const kv=E("div","kv");
+    kv.innerHTML =
+      `<span>Bay <b>${list.length} SKUs</b> ${custom()?"set for this branch":"("+(S.f.tier||"tier")+" list)"}</span>`+
+      `<span>MIN/MAX on <b>${set} of ${list.length}</b></span>`+
+      (b.lastVisit?`<span>Last visit <b>${b.lastVisit}</b>${b.rep?" · "+b.rep:""}</span>`:"")+
+      (b.score!=null&&b.score!==""?`<span>Scored <b>${b.score}/100</b> ${b.band||""}</span>`:"");
+    c.appendChild(kv);
+    if(b.lastVisit){
+      const w=E("div","was");
+      w.innerHTML = `Last time: ${b.orderLines?b.orderLines+" line"+(b.orderLines>1?"s":"")+" ordered"+
+        (b.orderUnits?" · "+b.orderUnits+" units":""):"nothing to order"}`+
+        (b.stockouts&&b.stockouts.length?` · <b>stockout on ${b.stockouts.join(", ")}</b>`:"")+
+        `. Counts from that visit show on each line below.`;
+      c.appendChild(w);
+    }
+  }
+  const sb=E("button","btn sm","Save branch setup"); sb.type="button"; sb.onclick=saveSetup;
+  c.appendChild(sb);
+  host.appendChild(c);
+}
+
+/* Saves the bay and the MIN/MAX against the branch on their own, without a visit —
+   so a setup round can be done before anyone counts a single unit. */
+function saveSetup(){
+  const n=S.f.branch;
+  if(!n){ flash("Pick a branch first"); return; }
+  const minmax={};
+  bay().forEach(r=>{ const o=st(r.s); if(+o.min>0||+o.max>0) minmax[r.s]=[o.min,o.max]; });
+  try{
+    const store=readStore();
+    store[n]={...(store[n]||{}), bay:(S.bay&&S.bay.length)?S.bay:bayCodes(),
+              minmax, tier:S.f.tier||"", storeno:S.f.storeno||"",
+              setupAt:new Date().toISOString().slice(0,10)};
+    if(!writeStore(store)){ flash("Could not save"); return; }
+    loadBranches(); draw();
+    flash("Setup saved for "+n);
+  }catch(e){ flash("Could not save"); }
+}
+
+/* Bays and MIN/MAX only — no visit history, no photos. This is the file that moves one
+   person's setup onto every rep's phone, and the one to send back to be baked in. */
+function exportSetup(){
+  const store=readStore(), out={};
+  Object.keys(store).forEach(k=>{ const b=store[k], mm={};
+    if(b.minmax) Object.keys(b.minmax).forEach(s=>{ const v=b.minmax[s]; mm[s]=Array.isArray(v)?v:[v.min,v.max]; });
+    if(b.stock)  Object.keys(b.stock).forEach(s=>{ const v=b.stock[s];
+      if(v && (v.min!=null||v.max!=null)) mm[s]=[v.min,v.max]; });
+    if(b.bay || Object.keys(mm).length)
+      out[k]={tier:b.tier||"", storeno:b.storeno||"", bay:b.bay||null, minmax:mm};
+  });
+  if(!Object.keys(out).length){ flash("No branch setup to export yet"); return; }
+  download("micron-branch-setup-"+new Date().toISOString().slice(0,10)+".json",
+           JSON.stringify({v:1, kind:"micron-branch-setup",
+                           exported:new Date().toISOString(), branches:out}, null, 1),
+           "application/json");
+}
+
+function importSetup(){
+  const i=document.createElement("input"); i.type="file"; i.accept=".json,application/json";
+  i.onchange=e=>{ const f=e.target.files[0]; if(!f) return;
+    const rd=new FileReader();
+    rd.onload=()=>{ try{
+      const d=JSON.parse(rd.result), inc=d.branches||{};
+      if(!Object.keys(inc).length) throw 0;
+      const store=readStore();
+      Object.keys(inc).forEach(k=>{ const s=inc[k], cur=store[k]||{};
+        /* setup only — a visit already recorded on this phone keeps its stock and its history */
+        store[k]={...cur, tier:cur.tier||s.tier||"", storeno:cur.storeno||s.storeno||"",
+                  bay:(s.bay&&s.bay.length)?s.bay:(cur.bay||null),
+                  minmax:{...(s.minmax||{}), ...(cur.minmax||{})}};
+      });
+      if(!writeStore(store)){ flash("Could not save"); return; }
+      loadBranches(); if(S.f.branch) loadBranch(S.f.branch); else draw();
+      flash("Setup loaded for "+Object.keys(inc).length+" branches");
+    }catch(err){ flash("That file isn't a Micron branch setup"); } };
+    rd.readAsText(f); };
+  i.click();
+}
+
+/* ── the 12 ticks ─────────────────────────────────────────── */
+function drawTicks(){
+  const h=document.getElementById("ticks"); h.innerHTML="";
+  STEPS.forEach((label,i)=>{
+    const k="s"+i;
+    const r=E("div","t"+(S.t[k]?" on":""));
+    r.setAttribute("role","checkbox"); r.tabIndex=0; r.setAttribute("aria-checked",!!S.t[k]);
+    r.innerHTML=`<span class="bx">${TICK}</span><span class="lb">${label}</span><span class="no">${String(i+1).padStart(2,"0")}</span>`;
+    const go=()=>{ S.t[k]=!S.t[k]; persist(); drawTicks(); chrome(); };
+    r.onclick=go; r.onkeydown=e=>{ if(e.key===" "||e.key==="Enter"){e.preventDefault();go();} };
+    h.appendChild(r);
+  });
+}
+
+
+/* ── stock ────────────────────────────────────────────────── */
+/* One row builder for every SKU, on the bay or off it, so a count entered in the
+   full-range tree is the same record as a count entered on the bay. */
+function skuRow(r, flags){
+  const o=st(r.s), row=E("div","r");
+  const paint=()=>{
+    const b=band(o);
+    row.className="r"+(b.k?" "+b.k:"")+(flags&&flags.mark&&onBay(r.s)?" onb":"");
+    row.innerHTML="";
+    const l=E("div","rl");
+    l.innerHTML=`<div class="rs">${r.s}${flags&&flags.mark&&onBay(r.s)?'<span class="obt">ON BAY</span>':""}</div>`+
+      `<div class="rn">${r.n}</div>`+
+      ((S.prior && S.prior.stock[r.s] && S.prior.stock[r.s].cur!=null)
+        ? `<div class="rp">was <b>${S.prior.stock[r.s].cur}</b> · ${shortDate(S.prior.date)}</div>` : "")+
+      (b.k?`<div class="rv ${b.k}">${b.q?b.l+" · order "+b.q:b.l}</div>`:"");
+    row.appendChild(l);
+    if(S.recv){
+      const rw=E("div","rcvw"); rw.appendChild(E("span",null,"Recv"));
+      const ri=E("input","rcv"); ri.type="number"; ri.inputMode="numeric"; ri.min=0;
+      ri.value=o.recv===null?"":o.recv; ri.setAttribute("aria-label","received "+r.s);
+      ri.oninput=e=>{ o.recv=e.target.value===""?null:+e.target.value; persist(); recalc(); };
+      rw.appendChild(ri); row.appendChild(rw);
+    }
+    const s=E("div","stp");
+    const mk=(t,fn,al)=>{ const b2=E("button",null,t); b2.type="button"; b2.onclick=fn; b2.setAttribute("aria-label",al); return b2; };
+    s.appendChild(mk("−",()=>{ o.cur=Math.max(0,(o.cur??0)-1); persist(); paint(); stat(); },"less "+r.s));
+    const n=E("input"); n.type="number"; n.inputMode="numeric"; n.min=0;
+    n.value=o.cur===null?"":o.cur; n.setAttribute("aria-label","stock "+r.s);
+    n.oninput=e=>{ o.cur=e.target.value===""?null:Math.max(0,+e.target.value); persist(); stat(); };
+    n.onblur=()=>{ paint(); stat(); };
+    s.appendChild(n);
+    s.appendChild(mk("+",()=>{ o.cur=(o.cur??0)+1; persist(); paint(); stat(); },"more "+r.s));
+    row.appendChild(s);
+    /* MIN/MAX — tap to set or override. Off-range lines start blank, so this is how a
+       rep puts a reorder point on something the branch has started stocking. */
+    const mb=E("button","mmb"); mb.type="button";
+    mb.innerHTML=`<b>${o.min??"–"}/${o.max??"–"}</b>min / max`;
+    mb.setAttribute("aria-label","set min and max for "+r.s);
+    mb.onclick=()=>{
+      const w=E("div","mme");
+      const f=(v,ph,set)=>{ const i=E("input"); i.type="number"; i.inputMode="numeric"; i.min=0;
+        i.placeholder=ph; i.value=v??""; i.setAttribute("aria-label",ph+" "+r.s);
+        i.oninput=e=>{ set(e.target.value===""?null:Math.max(0,+e.target.value)); o.d=false; persist(); };
+        i.onblur=()=>{ setTimeout(()=>{ if(!w.contains(document.activeElement)){ paint(); stat(); } },80); };
+        return i; };
+      w.appendChild(f(o.min,"min",v=>o.min=v));
+      w.appendChild(f(o.max,"max",v=>o.max=v));
+      mb.replaceWith(w); w.firstChild.focus();
+    };
+    row.appendChild(mb);
+  };
+  paint(); return row;
+}
+
+/* Edit mode: one tap per row, on or off this branch's bay. No steppers, no counting. */
+function pickRow(r){
+  const on=onBay(r.s), row=E("div","r pk"+(on?" on":""));
+  const l=E("div","rl");
+  l.innerHTML=`<div class="rs">${r.s}</div><div class="rn">${r.n}</div>`;
+  row.appendChild(l);
+  const b=E("button","pbtn"+(on?" on":""), on?"ON BAY":"+ ADD"); b.type="button";
+  b.setAttribute("aria-pressed", on?"true":"false");
+  b.setAttribute("aria-label",(on?"remove ":"add ")+r.s+(on?" from":" to")+" this branch's bay");
+  b.onclick=()=>{ toggleBay(r.s); drawStock(); };
+  row.appendChild(b);
+  return row;
+}
+
+function drawStock(){
+  const host=document.getElementById("stock"), tools=document.getElementById("tools");
+  host.innerHTML=""; const list=bay();
+  S.open = S.open || {};
+
+  tools.innerHTML="";
+  if(!S.edit){
+    const rb=E("button","btn sm", S.recv ? "Hide received" : "Stock came in");
+    rb.type="button"; rb.onclick=()=>{ S.recv=!S.recv; persist(); draw(); };
+    tools.appendChild(rb);
+  }
+  const stats=E("span"); stats.id="stats"; tools.appendChild(stats);
+
+  if(S.recv && !S.edit){
+    const bar=E("div","recvbar");
+    bar.innerHTML="<b>Received since the last visit</b> — enter it so next month's MIN/MAX is right";
+    host.appendChild(bar);
+  }
+
+  /* ── the bay this branch actually carries. This is the count that scores. ── */
+  const bh=E("div","fh bayh");
+  const bl=E("span",null,"On the bay · "+list.length+" SKUs · "+(custom()?"set for this branch":(S.f.tier||"tier")+" list"));
+  bh.appendChild(bl);
+  const eb=E("button","edb"+(S.edit?" on":""), S.edit?"DONE":"EDIT BAY"); eb.type="button";
+  eb.onclick=()=>{
+    if(!S.edit && !S.f.branch){ flash("Pick a branch first — the bay is saved against it"); return; }
+    S.edit=!S.edit; if(!S.edit) saveBay(); persist(); draw();
+  };
+  bh.appendChild(eb); host.appendChild(bh);
+
+  if(S.edit){
+    const n=E("div","ednote");
+    n.innerHTML="<b>Setting the bay for "+(S.f.branch||"this branch")+".</b> Tap to drop anything this store "+
+      "does not carry, then open the full range below and tap <b>+ ADD</b> on what it does. Saved against the "+
+      "branch, so next visit starts from this list.";
+    host.appendChild(n);
+    if(custom()){
+      const rz=E("button","btn sm","Reset to the "+(S.f.tier||"tier")+" list"); rz.type="button";
+      rz.style.cssText="margin:9px 14px"; rz.onclick=resetBay; host.appendChild(rz);
+    }
+  }
+
+  const mk = r => S.edit ? pickRow(r) : skuRow(r);
+  FAMS.forEach(fam=>{
+    const rows=list.filter(r=>inRange(r.s) && CODES[r.s].f===fam);
+    if(!rows.length) return;
+    host.appendChild(E("div","fh sub",fam));
+    rows.forEach(r=>host.appendChild(mk(r)));
+  });
+  const added=list.filter(r=>!inRange(r.s));
+  if(added.length){
+    host.appendChild(E("div","fh sub","Added at this branch"));
+    added.forEach(r=>host.appendChild(mk(r)));
+  }
+  if(!list.length) host.appendChild(E("div","nores","Nothing on the bay yet — open the full range below and tap + ADD."));
+
+  /* ── full range: group → series → SKU, two taps to anything we sell ── */
+  const head=E("div","fh fr");
+  head.innerHTML="<span>Full range</span><span style='font-weight:600;letter-spacing:.04em;opacity:.75'>"+
+    Object.keys(CAT).length+" SKUs</span>";
+  host.appendChild(head);
+
+  const fi=E("input","find"); fi.type="search"; fi.placeholder="Find a SKU — type WH302, MU10, pleated…";
+  fi.value=S.q||""; fi.setAttribute("aria-label","find a SKU");
+  fi.oninput=e=>{ S.q=e.target.value; drawTree(); };
+  host.appendChild(fi);
+
+  const tn=E("div"); host.appendChild(tn);
+
+  function drawTree(){
+    tn.innerHTML="";
+    const q=(S.q||"").trim().toLowerCase();
+    const hit=c=>!q || c.toLowerCase().includes(q) || (CAT[c]&&CAT[c].n.toLowerCase().includes(q));
+    let shown=0;
+
+    TREE.forEach(g=>{
+      const ser=g.s.map(s=>({e:s.e, k:s.k.filter(hit)})).filter(s=>s.k.length);
+      if(!ser.length) return;
+      const codes=ser.reduce((a,s)=>a.concat(s.k),[]);
+      shown+=codes.length;
+      const gopen = q ? true : !!S.open[g.g];
+
+      const gh=E("button","gh"+(gopen?" op":"")); gh.type="button";
+      gh.innerHTML=`<span class="cv">▶</span><span class="lb">${g.g}</span>`+
+        worst(codes)+`<span class="ct">${codes.length}</span>`;
+      gh.onclick=()=>{ S.open[g.g]=!gopen; persist(); drawTree(); };
+      tn.appendChild(gh);
+      if(!gopen) return;
+
+      ser.forEach(s=>{
+        const key=g.g+"|"+s.e, sopen = q ? true : !!S.open[key];
+        const sh=E("button","sh"+(sopen?" op":"")); sh.type="button";
+        sh.innerHTML=`<span class="cv">▶</span><span class="lb">${s.e}</span>`+
+          worst(s.k)+`<span class="ct">${s.k.length}</span>`;
+        sh.onclick=()=>{ S.open[key]=!sopen; persist(); drawTree(); };
+        tn.appendChild(sh);
+        if(!sopen) return;
+        s.k.forEach(c=>tn.appendChild(S.edit?pickRow(sku(c)):skuRow(sku(c),{mark:true})));
+      });
+    });
+    if(!shown) tn.appendChild(E("div","nores","Nothing matches “"+S.q+"”. Clear the box to see the whole range."));
+  }
+  /* the dot on a group or series header: red if anything inside is critical, amber if
+     anything needs ordering, green if everything inside has been counted and is fine */
+  function worst(codes){
+    let c=0,o=0,n=0;
+    codes.forEach(k=>{ const b=band(S.stock[k]||{}); if(b.k==="c")c++; else if(b.k==="o")o++; else if(b.k)n++; });
+    return c?'<span class="dot c"></span>' : o?'<span class="dot o"></span>' : n?'<span class="dot k"></span>' : "";
+  }
+
+  drawTree();
+  stat(); recalc();
+}
+
+function stat(){
+  const el=document.getElementById("stats"); if(!el) return;
+  const list=bay(); let n=0,c=0,o=0,v=0,units=0;
+  list.forEach(r=>{ const s=st(r.s), b=band(s);
+    if(b.k){ n++; units+=b.q; if(b.k==="c")c++; else if(b.k==="o")o++; else if(b.k==="v")v++; } });
+  const ex=extras();
+  ex.forEach(r=>{ const b=band(st(r.s)); units+=b.q;
+    if(b.k==="c")c++; else if(b.k==="o")o++; else if(b.k==="v")v++; });
+  el.innerHTML=`<span class="chip">${n}/${list.length} counted</span>`+
+    (ex.length?`<span class="chip n">+${ex.length} off range</span>`:"")+
+    (c?`<span class="chip c">${c} critical</span>`:"")+
+    (o?`<span class="chip o">${o} order</span>`:"")+
+    (v?`<span class="chip v">${v} over</span>`:"")+
+    (units?`<span class="chip $">${units} unit${units===1?"":"s"} to order</span>`:"");
+  if(n===list.length && n>0) S.t.s3=true;
+  chrome();
+}
+
+/* MIN/MAX recalculated from counted sell-through */
+function recalc(){
+  const h=document.getElementById("recalc"); h.innerHTML="";
+  const p=S.prior;
+  if(!p){
+    h.appendChild(E("div","note","<b>Launch MIN/MAX in force.</b> No previous visit saved for this branch, so every SKU is on the published default for this tier. Save this visit and next month these numbers recalculate themselves from what actually sold."));
+    return;
+  }
+  const days=Math.max(7,(new Date(S.f.date||Date.now())-new Date(p.date))/864e5), wks=days/7;
+  const chg=[];
+  ranged().forEach(r=>{
+    const o=st(r.s), was=p.stock[r.s];
+    if(!was || o.cur===null || was.cur===null || was.cur===undefined) return;
+    const sold=Math.max(0, was.cur + (+o.recv||0) - o.cur), wk=sold/wks;
+    const mn=Math.max(1, Math.ceil(wk*1*(r.c==="A"?1.5:1.25)));
+    const mx=Math.max(mn+1, Math.ceil(mn + wk*wks));
+    if(mn!==o.min || mx!==o.max) chg.push({r,o,mn,mx,sold});
+  });
+  if(!chg.length) return;
+  const w=E("div","note");
+  w.innerHTML=`<b>${chg.length} MIN/MAX ${chg.length===1?"change":"changes"} suggested</b> from what sold in the last ${wks.toFixed(0)} weeks: `+
+    chg.slice(0,8).map(x=>`${x.r.s} ${x.o.min}/${x.o.max}→<b>${x.mn}/${x.mx}</b>`).join(", ")+
+    (chg.length>8?`, +${chg.length-8} more`:"");
+  const b=E("button","btn p sm","Apply, then move the MIN cards");
+  b.type="button"; b.style.marginTop="9px";
+  b.onclick=()=>{ chg.forEach(x=>{ x.o.min=x.mn; x.o.max=x.mx; }); S.t.s7=false; persist(); draw(); flash("MIN/MAX updated — reposition the cards"); };
+  w.appendChild(document.createElement("br")); w.appendChild(b);
+  h.appendChild(w);
+}
+
+/* ── actions ──────────────────────────────────────────────── */
+const ATYPES=[["Price wrong in their system","R"],["Stock not delivered","R"],["Zero stock on a core line","R"],
+  ["Display damaged or moved","A"],["Damaged product / credit needed","A"],["Competitor stock in our bay","A"],
+  ["Brochures or spec sheets out","A"],["Store Champion has left","A"],["Display tidy-up needed","G"],
+  ["Range opportunity","G"],["Something else","A"]];
+
+function drawActions(){
+  const h=document.getElementById("actions"); h.innerHTML="";
+  S.actions.forEach((a,i)=>{
+    const w=E("div","ac "+a.pri);
+    const t=E("input","row1"); t.value=a.text||""; t.placeholder="What needs to happen";
+    t.oninput=e=>{ a.text=e.target.value; persist(); report(); };
+    w.appendChild(t);
+    const r=E("div","row2");
+    const p=E("select");
+    [["R","\u{1F534} Red"],["A","\u{1F7E0} Amber"],["G","\u{1F7E2} Green"]].forEach(([v,l])=>{
+      const o=E("option",null,l); o.value=v; if(a.pri===v)o.selected=true; p.appendChild(o); });
+    p.onchange=e=>{ a.pri=e.target.value; persist(); draw(); };
+    r.appendChild(p);
+    const ow=E("input"); ow.placeholder="Owner"; ow.value=a.owner||"";
+    ow.oninput=e=>{ a.owner=e.target.value; persist(); chrome(); }; r.appendChild(ow);
+    const du=E("input"); du.type="date"; du.value=a.due||"";
+    du.oninput=e=>{ a.due=e.target.value; persist(); chrome(); }; r.appendChild(du);
+    const x=E("button","btn sm","×"); x.type="button"; x.setAttribute("aria-label","remove");
+    x.onclick=()=>{ S.actions.splice(i,1); persist(); draw(); }; r.appendChild(x);
+    w.appendChild(r); h.appendChild(w);
+  });
+  const sel=E("select"); sel.className="btn dz"; sel.style.textAlign="left";
+  sel.appendChild(E("option",null,"+ Add something broken…"));
+  ATYPES.forEach(([l,p])=>{ const o=E("option",null,l); o.value=l+"|"+p; sel.appendChild(o); });
+  sel.onchange=e=>{ if(!e.target.value.includes("|")) return;
+    const [text,pri]=e.target.value.split("|");
+    const d=new Date(); d.setDate(d.getDate()+(pri==="R"?7:pri==="A"?30:60));
+    S.actions.push({text:text==="Something else"?"":text, pri, owner:"", due:d.toISOString().slice(0,10)});
+    persist(); draw(); };
+  h.appendChild(sel);
+  if(S.actions.length && S.actions.every(a=>a.owner&&a.due)) S.t.s10=true;
+}
+
+/* ── visit score ──────────────────────────────────────────── */
+function score(){
+  const list=bay();
+  const counted=list.filter(r=>st(r.s).cur!==null);
+  const above=counted.filter(r=>{ const o=st(r.s); return o.cur > (+o.min||0); });
+  const zeros=counted.filter(r=>st(r.s).cur===0);
+  const zeroA=zeros.filter(r=>r.c==="A");
+  const pct=counted.length?above.length/counted.length*100:0;
+
+  const stock = !counted.length ? 0 : zeros.length ? 0 : pct>=100 ? 35 : pct>=80 ? 18 : 0;
+  const done  = STEPS.filter((_,i)=>S.t["s"+i]).length;
+  const exec  = Math.round(done/12*30);
+  const mmSet = list.length && list.every(r=>{const o=st(r.s); return +o.min>0 && +o.max>0;});
+  const mm    = mmSet && S.t.s7 ? 15 : mmSet ? 8 : 0;
+  const price = S.t.s5 ? 10 : 0;
+  /* photos are taken and attached in Basecamp now, so the evidence points come from
+     the rep ticking those two steps rather than from an image held in this page */
+  const ev    = (S.t.s0?4:0)+(S.t.s9?4:0)+(S.actions.every(a=>a.owner&&a.due)?2:0);
+
+  let total = stock+exec+mm+price+ev;
+  const caps=[];
+  if(zeroA.length){ caps.push("zero stock on "+zeroA.map(r=>r.s).join(", ")+" — capped at 74"); total=Math.min(total,74); }
+  if(!S.t.s5 && counted.length){ caps.push("pricing not confirmed — capped at 89"); total=Math.min(total,89); }
+
+  const b = total>=90?["Excellent","var(--ok)"] : total>=75?["Good","var(--ok)"]
+          : total>=60?["Needs improvement","var(--ord)"] : ["Action required","var(--crit)"];
+  const drags=[];
+  if(stock<35) drags.push(`stock ${stock}/35`);
+  if(exec<30)  drags.push(`steps ${done}/12`);
+  if(mm<15)    drags.push("MIN/MAX "+mm+"/15");
+  if(price<10) drags.push("pricing 0/10");
+  if(ev<10)    drags.push(`evidence ${ev}/10`);
+  return {total, band:b, caps, drags, counted:counted.length, total_skus:list.length, zeroA};
+}
+
+function drawScore(){
+  const d=score(), h=document.getElementById("score");
+  h.innerHTML=`<div class="n" style="color:${d.band[1]}">${d.counted?d.total:"–"}<sub>/100</sub></div>
+    <div><div class="bnd" style="color:${d.band[1]}">${d.counted?d.band[0]:"Not scored yet"}</div>
+    <div class="drag">${d.caps.length?"<b style='color:var(--crit)'>"+d.caps.join(" · ")+"</b><br>":""}
+    ${d.drags.length?"Dragging: "+d.drags.join(" · "):"Everything clear."}</div></div>`;
+}
+
+/* ── the Basecamp comment ─────────────────────────────────── */
+function reportText(){
+  const d=score();
+  const ord=counting().map(r=>({r,o:st(r.s),b:band(st(r.s))})).filter(x=>x.b.q>0)
+              .sort((a,b)=>(a.b.k==="c"?0:1)-(b.b.k==="c"?0:1));
+  const L=[];
+  L.push(`MICRON VISIT — ${S.f.branch||"(branch)"}${S.f.storeno?" ("+S.f.storeno+")":""}`);
+  L.push(`${S.f.date||""} · ${S.f.rep||"rep"} · ${S.f.tier||""} · Score ${d.counted?d.total:"–"}/100 ${d.counted?d.band[0]:""}`);
+  L.push("");
+  if(ord.length){
+    let u=0; L.push("ORDER REQUIRED");
+    ord.forEach(x=>{ u+=x.b.q;
+      L.push(`  ${x.r.s.padEnd(14)} cur ${String(x.o.cur).padStart(2)}  min ${x.o.min}  max ${x.o.max}  -> order ${x.b.q}  ${x.b.l}${onBay(x.r.s)?"":"  (off range)"}`); });
+    L.push(`  ${ord.length} line${ord.length===1?"":"s"} · ${u} unit${u===1?"":"s"}`);
+  } else if(d.counted){ L.push("ORDER REQUIRED — none, all lines above MIN"); }
+  L.push("");
+  L.push(`BAY      ${d.total_skus} SKUs${custom()?" — set for this branch":" — "+(S.f.tier||"tier")+" list"}`);
+  L.push(`STOCK    ${d.counted}/${d.total_skus} counted${d.zeroA.length?" · STOCKOUT on "+d.zeroA.map(r=>r.s).join(", "):""}`);
+  L.push(`STEPS    ${STEPS.filter((_,i)=>S.t["s"+i]).length}/12 ticked`);
+  L.push(`PHOTOS   before ${S.t.s0?"taken":"NO"} · after ${S.t.s9?"taken":"NO"} — attach them to this card`);
+  if(S.actions.length){
+    L.push(""); L.push("ACTIONS");
+    S.actions.forEach(a=>L.push(`  [${a.pri}] ${a.text||"—"} — ${a.owner||"NO OWNER"} — due ${a.due||"NO DATE"}`));
+  }
+  L.push("");
+  L.push(`NEXT VISIT ${S.f.next||"NOT BOOKED"}`);
+  const miss=STEPS.filter((_,i)=>!S.t["s"+i]);
+  if(miss.length){ L.push(""); L.push("STILL OPEN: "+miss.join(" · ")); }
+  return L.join("\n");
+}
+function report(){ document.getElementById("report").textContent = reportText(); }
+
+function copyReport(){
+  const t=reportText();
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject())
+    .then(()=>flash("Copied — paste it onto the card"))
+    .catch(()=>{ const a=document.createElement("textarea"); a.value=t; document.body.appendChild(a); a.select();
+      try{ document.execCommand("copy"); flash("Copied"); }catch(e){ flash("Select the text and copy"); } a.remove(); });
+}
+
+function csv(){
+  const rows=[["SKU","Product","On bay","Class","Current","Received","Min","Max","Band","Order qty"]];
+  counting().forEach(r=>{ const o=st(r.s), b=band(o);
+    rows.push([r.s,r.n,onBay(r.s)?"yes":"no",r.c,o.cur??"",o.recv??"",o.min??"",o.max??"",b.l,b.q]); });
+  return rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
+}
+function download(name, text, type){
+  try{
+    const b=new Blob([text],{type:type||"text/plain;charset=utf-8"});
+    const u=URL.createObjectURL(b), a=document.createElement("a");
+    a.href=u; a.download=name; document.body.appendChild(a); a.click();
+    setTimeout(()=>{ URL.revokeObjectURL(u); a.remove(); },1500);
+    flash("Downloaded");
+  }catch(e){ flash("Download not supported here — use Copy"); }
+}
+function saveCSV(){
+  download(`micron-${(S.f.branch||"branch").replace(/[^a-z0-9]+/gi,"-").toLowerCase()}-${S.f.date||""}.csv`,
+           csv(), "text/csv;charset=utf-8");
+}
+function backup(){
+  download(`micron-visit-backup-${new Date().toISOString().slice(0,10)}.json`,
+    JSON.stringify({v:1, exported:new Date().toISOString(),
+      branches:readStore(), visits:(()=>{try{return JSON.parse(localStorage.getItem(LSV)||"[]")}catch(e){return []}})()
+    }, null, 1), "application/json");
+}
+function restore(){
+  const i=document.createElement("input"); i.type="file"; i.accept=".json,application/json";
+  i.onchange=e=>{ const f=e.target.files[0]; if(!f) return;
+    const rd=new FileReader();
+    rd.onload=()=>{ try{
+      const d=JSON.parse(rd.result);
+      if(!d || !d.branches) throw 0;
+      const merged={...readStore()};
+      Object.keys(d.branches).forEach(k=>{
+        const inc=d.branches[k], cur=merged[k];
+        if(!cur || !cur.lastVisit || (inc.lastVisit||"") >= cur.lastVisit) merged[k]=inc;
+      });
+      writeStore(merged);
+      if(d.visits) try{ localStorage.setItem(LSV, JSON.stringify(d.visits)); }catch(e){}
+      loadBranches(); draw();
+      flash("Restored "+Object.keys(d.branches).length+" branch records");
+    }catch(err){ flash("That file isn't a Micron backup"); } };
+    rd.readAsText(f); };
+  i.click();
+}
+function newVisit(){ if(confirm("Start a new visit? Save this one first if you need it.")){ S=NEW(); persist(); draw(); } }
+
+/* ── chrome ───────────────────────────────────────────────── */
+function chrome(){
+  const d=score(), done=STEPS.filter((_,i)=>S.t["s"+i]).length;
+  document.getElementById("tb").textContent = S.f.branch || "Pick a branch";
+  document.getElementById("tm").textContent = done+" of 12";
+  document.getElementById("pg").style.width = (done/12*100)+"%";
+  document.getElementById("fsc").textContent = d.counted ? d.total : "—";
+  document.getElementById("fsc").style.color = d.counted ? d.band[1] : "var(--ink3)";
+  document.getElementById("fbd").textContent = d.counted ? d.band[0] : "score";
+  const open = 12-done;
+  document.getElementById("fm1").textContent = open ? open+" step"+(open>1?"s":"")+" to go" : "All 12 done — post it";
+  document.getElementById("fm1").style.color = open ? "var(--ink)" : "var(--ok)";
+  document.getElementById("fm2").textContent = `${d.counted}/${d.total_skus} SKUs · ${S.actions.length} action${S.actions.length===1?"":"s"}`;
+  drawScore(); report();
+}
+
+function draw(){ defaults(); drawSetup(); drawBranchCard(); drawTicks(); drawStock(); drawActions(); chrome(); }
+
+function flash(m){
+  let f=document.getElementById("flash");
+  if(!f){ f=E("div"); f.id="flash";
+    f.style.cssText="position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:60;background:var(--navy);color:#fff;padding:10px 16px;border-radius:22px;font-size:13px;font-weight:600;box-shadow:0 4px 18px rgba(0,0,0,.25);transition:opacity .3s";
+    document.body.appendChild(f); }
+  f.textContent=m; f.style.opacity="1";
+  clearTimeout(f._t); f._t=setTimeout(()=>{ f.style.opacity="0"; },2200);
+}
+
+/* ── save ─────────────────────────────────────────────────── */
+async function save(){
+  persist();
+  const d=score(), stock={};
+  counting().forEach(r=>{ const o=st(r.s); stock[r.s]={cur:o.cur,min:o.min,max:o.max,recv:o.recv}; });
+  const ord=counting().map(r=>({r,b:band(st(r.s))})).filter(x=>x.b.q>0);
+  const rec={ id:S.id, savedAt:new Date().toISOString(),
+    branch:S.f.branch||"", storeno:S.f.storeno||"", rep:S.f.rep||"", tier:S.f.tier||"",
+    date:S.f.date||"", nextVisit:S.f.next||"", score:d.counted?d.total:null, band:d.counted?d.band[0]:"",
+    steps:STEPS.filter((_,i)=>S.t["s"+i]).length, counted:d.counted, skus:d.total_skus,
+    stockouts:d.zeroA.map(r=>r.s), orderLines:ord.length, bay:(S.bay&&S.bay.length)?S.bay:null,
+    orderUnits:ord.reduce((a,x)=>a+x.b.q,0),
+    actions:S.actions, redOpen:S.actions.filter(a=>a.pri==="R").length,
+    photosBefore:!!S.t.s0, photosAfter:!!S.t.s9, stock };
+  const el=document.getElementById("sync");
+  if(!rec.branch){ flash("Pick a branch first"); return; }
+
+  const minmax={};
+  bay().forEach(r=>{ const o=st(r.s); if(+o.min>0||+o.max>0) minmax[r.s]=[o.min,o.max]; });
+  const store=readStore();
+  store[rec.branch]={...(store[rec.branch]||{}), ...rec, minmax,
+                     lastVisit:rec.date||new Date().toISOString().slice(0,10), stock};
+  const ok=writeStore(store);
+
+  try{
+    const log=JSON.parse(localStorage.getItem(LSV)||"[]");
+    log.unshift({id:rec.id, branch:rec.branch, date:rec.date, rep:rec.rep, score:rec.score,
+                 band:rec.band, orderUnits:rec.orderUnits, stockouts:rec.stockouts, steps:rec.steps});
+    localStorage.setItem(LSV, JSON.stringify(log.slice(0,200)));
+  }catch(e){}
+
+  loadBranches(); drawSetup();
+  if(ok){
+    flash("Saved");
+    el.textContent="Saved on this phone. Next visit to "+rec.branch+" loads these MIN/MAX numbers back in and recalculates them from what sold. Use Backup before changing phones.";
+  } else {
+    flash("Could not save");
+    el.textContent="This browser refused to store the record (private browsing?). Copy the report to Basecamp now — it is the real record either way.";
+  }
+}
+
+/* ── boot ─────────────────────────────────────────────────── */
+try{ const r=localStorage.getItem(LS); if(r){ const p=JSON.parse(r); if(p&&p.v===2) S={...NEW(),...p}; } }catch(e){}
+loadBranches();
+draw();
+(function(){
+  const el=document.getElementById("sync");
+  const n=BRANCHES.filter(b=>b.lastVisit).length;
+  el.textContent = n
+    ? n+" branch"+(n===1?"":"es")+" with a saved count on this phone — pick one and last visit's MIN/MAX loads in."
+    : "First run on this phone. Count a branch, Save, and next visit its MIN/MAX comes back automatically.";
+})();
+</script>
+
+</body></html>
