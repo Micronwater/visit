@@ -368,10 +368,15 @@ const shortDate = s => { const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(s||"");
 const TICK='<svg viewBox="0 0 16 16"><polyline points="2.5,8.5 6.2,12 13.5,4"/></svg>';
 
 const ti = () => { const t=S.f.tier||""; return t.indexOf("Tier 1")===0?0 : t.indexOf("Tier 3")===0?2 : 1; };
-/* The tier list is only the STARTING POINT. Branches differ — some carry a cut-down range
-   because of space — so each branch keeps its own bay, stored with its record. */
+/* Branches differ — some carry a cut-down range because of space — so each branch keeps
+   its own bay, stored with its record. */
 const ranged = () => RANGE.filter(r => r.t >= ti()+1);
-const bayCodes = () => (S.bay && S.bay.length) ? S.bay : ranged().map(r=>r.s);
+/* A branch nobody has set up yet opens with ONE line, at every tier, and the rep adds what
+   the store actually carries. Building up beats deleting 54 lines you never stocked.
+   `ranged()` is still the Tier N list — edit mode offers it as a shortcut for a branch
+   that genuinely carries the lot. */
+const STARTER = ["WH303A/X"];
+const bayCodes = () => (S.bay && S.bay.length) ? S.bay : STARTER.slice();
 const RPOS={}; RANGE.forEach((r,i)=>{ RPOS[r.s]=i; });
 const bay = () => { const c=bayCodes();
   return c.slice().sort((a,b)=>(RPOS[a]!==undefined?RPOS[a]:900+c.indexOf(a))
@@ -399,22 +404,27 @@ function saveBay(){
   try{ const store=readStore(); store[n]={...(store[n]||{}), bay:S.bay}; writeStore(store); loadBranches(); }catch(e){}
 }
 function resetBay(){
-  if(!confirm("Reset this branch back to the "+(S.f.tier||"tier")+" list? Anything added here is removed.")) return;
-  S.bay=null; persist(); saveBay(); draw(); flash("Back to the "+(S.f.tier||"tier")+" list");
+  if(!confirm("Clear this branch back to one line (WH303A/X)? Anything added here is removed.")) return;
+  S.bay=null; persist(); saveBay(); draw(); flash("Back to one line — add what this store carries");
+}
+/* For a branch that really does carry the whole tier range, so nobody has to add 54 lines
+   one at a time. Still just a starting point: they can drop from it as before. */
+function loadTierBay(){
+  const t=S.f.tier||"Tier 2", codes=ranged().map(r=>r.s);
+  if(!confirm("Put the whole "+t+" list ("+codes.length+" lines) on this bay? You can drop from it after.")) return;
+  S.bay=codes; persist(); saveBay(); draw(); flash(t+" list loaded — "+codes.length+" lines, MIN/MAX still blank");
 }
 const st = k => (S.stock[k] ||= {cur:null, recv:null, min:null, max:null});
 
 function defaults(){
-  const i=ti(), inBay=baySet();
-  /* Changing the tier, or dropping a line from the bay, leaves a published MIN/MAX behind.
-     If nobody ever counted that line it is not a finding — clear it, so it cannot resurface
-     as a phantom off-range order. `d` marks a number that came from the published default. */
+  const inBay=baySet();
+  /* Nothing is pre-filled any more — every MIN/MAX is typed by the rep for that branch.
+     The clean-up below still earns its keep: older saved visits, and any branch restored
+     from a backup made before this change, can still carry a `d` number that came from the
+     published launch default. If the line has since left the bay and nobody counted it,
+     drop it, so it cannot resurface as a phantom off-range order. */
   Object.keys(S.stock).forEach(k=>{ const o=S.stock[k];
     if(o && o.d && !inBay.has(k) && (o.cur===null||o.cur===undefined)) delete S.stock[k]; });
-  bay().forEach(r=>{ const c=CODES[r.s]; if(!c) return;
-    const o=st(r.s), d=c.m[i];
-    if(o.min===null && d && d[0]!==null){ o.min=d[0]; o.d=true; }
-    if(o.max===null && d && d[1]!==null){ o.max=d[1]; o.d=true; } });
 }
 
 /* four-band reorder logic — identical to the system document */
@@ -505,12 +515,13 @@ function drawBranchCard(){
   const c=E("div","bcard"+(have?"":" none"));
   c.appendChild(E("h3",null,"On file for "+n));
   if(!have){
-    c.appendChild(E("div","kv","Nothing saved for this branch yet. Set the bay and the MIN/MAX numbers, "+
-      "then tap <b>Save branch setup</b> — next time you open "+n+" they come straight back."));
+    c.appendChild(E("div","kv","Nothing saved for this branch yet. The bay starts at one line — add what "+
+      "this store carries, set MIN and MAX on each, then tap <b>Save branch setup</b>. Next time you open "+
+      n+" it all comes straight back."));
   } else {
     const kv=E("div","kv");
     kv.innerHTML =
-      `<span>Bay <b>${list.length} SKUs</b> ${custom()?"set for this branch":"("+(S.f.tier||"tier")+" list)"}</span>`+
+      `<span>Bay <b>${list.length} SKUs</b> ${custom()?"set for this branch":"(not set up yet)"}</span>`+
       `<span>MIN/MAX on <b>${set} of ${list.length}</b></span>`+
       (b.lastVisit?`<span>Last visit <b>${b.lastVisit}</b>${b.rep?" · "+b.rep:""}</span>`:"")+
       (b.score!=null&&b.score!==""?`<span>Scored <b>${b.score}/100</b> ${b.band||""}</span>`:"");
@@ -691,7 +702,7 @@ function drawStock(){
 
   /* ── the bay this branch actually carries. This is the count that scores. ── */
   const bh=E("div","fh bayh");
-  const bl=E("span",null,"On the bay · "+list.length+" SKUs · "+(custom()?"set for this branch":(S.f.tier||"tier")+" list"));
+  const bl=E("span",null,"On the bay · "+list.length+" SKUs · "+(custom()?"set for this branch":"not set up yet"));
   bh.appendChild(bl);
   const eb=E("button","edb"+(S.edit?" on":""), S.edit?"DONE":"EDIT BAY"); eb.type="button";
   eb.onclick=()=>{
@@ -702,14 +713,18 @@ function drawStock(){
 
   if(S.edit){
     const n=E("div","ednote");
-    n.innerHTML="<b>Setting the bay for "+(S.f.branch||"this branch")+".</b> Tap to drop anything this store "+
-      "does not carry, then open the full range below and tap <b>+ ADD</b> on what it does. Saved against the "+
-      "branch, so next visit starts from this list.";
+    n.innerHTML="<b>Setting the bay for "+(S.f.branch||"this branch")+".</b> Open the full range below and tap "+
+      "<b>+ ADD</b> on everything this store carries — or load the whole tier list and drop what it does not. "+
+      "Saved against the branch, so next visit starts from this list.";
     host.appendChild(n);
+    const row=E("div"); row.style.cssText="display:flex;gap:8px;flex-wrap:wrap;margin:9px 14px";
+    const lt=E("button","btn sm","Load the "+(S.f.tier||"Tier 2")+" list"); lt.type="button";
+    lt.onclick=loadTierBay; row.appendChild(lt);
     if(custom()){
-      const rz=E("button","btn sm","Reset to the "+(S.f.tier||"tier")+" list"); rz.type="button";
-      rz.style.cssText="margin:9px 14px"; rz.onclick=resetBay; host.appendChild(rz);
+      const rz=E("button","btn sm","Clear back to one line"); rz.type="button";
+      rz.onclick=resetBay; row.appendChild(rz);
     }
+    host.appendChild(row);
   }
 
   const mk = r => S.edit ? pickRow(r) : skuRow(r);
@@ -807,12 +822,12 @@ function recalc(){
   const h=document.getElementById("recalc"); h.innerHTML="";
   const p=S.prior;
   if(!p){
-    h.appendChild(E("div","note","<b>Launch MIN/MAX in force.</b> No previous visit saved for this branch, so every SKU is on the published default for this tier. Save this visit and next month these numbers recalculate themselves from what actually sold."));
+    h.appendChild(E("div","note","<b>First visit to this branch.</b> Nothing is pre-filled — set MIN and MAX on every line you have put on the bay. Save this visit and next month the page suggests new numbers from what actually sold."));
     return;
   }
   const days=Math.max(7,(new Date(S.f.date||Date.now())-new Date(p.date))/864e5), wks=days/7;
   const chg=[];
-  ranged().forEach(r=>{
+  bay().forEach(r=>{
     const o=st(r.s), was=p.stock[r.s];
     if(!was || o.cur===null || was.cur===null || was.cur===undefined) return;
     const sold=Math.max(0, was.cur + (+o.recv||0) - o.cur), wk=sold/wks;
@@ -930,7 +945,7 @@ function reportText(){
     L.push(`  ${ord.length} line${ord.length===1?"":"s"} · ${u} unit${u===1?"":"s"}`);
   } else if(d.counted){ L.push("ORDER REQUIRED — none, all lines above MIN"); }
   L.push("");
-  L.push(`BAY      ${d.total_skus} SKUs${custom()?" — set for this branch":" — "+(S.f.tier||"tier")+" list"}`);
+  L.push(`BAY      ${d.total_skus} SKUs${custom()?" — set for this branch":" — NOT SET UP YET"}`);
   L.push(`STOCK    ${d.counted}/${d.total_skus} counted${d.zeroA.length?" · STOCKOUT on "+d.zeroA.map(r=>r.s).join(", "):""}`);
   L.push(`STEPS    ${STEPS.filter((_,i)=>S.t["s"+i]).length}/12 ticked`);
   L.push(`PHOTOS   before ${S.t.s0?"taken":"NO"} · after ${S.t.s9?"taken":"NO"} — attach them to this card`);
