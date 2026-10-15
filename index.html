@@ -368,7 +368,7 @@ let SEED = {};
    a valid, supported state: the app then behaves exactly as it did before, with no
    network calls and no queue. The Worker commits to setups.json in the repo, so
    GitHub stays the source of truth and the read path never depends on the endpoint. */
-const SYNC = { url: "" };
+const SYNC = { url: "https://micron-setup-publisher.gwg0911.workers.dev" };
 const LSQ = "micron.pending.v1";   /* setups saved locally but not yet published */
 
 const readQ  = () => { try{ return JSON.parse(localStorage.getItem(LSQ)||"{}"); }catch(e){ return {}; } };
