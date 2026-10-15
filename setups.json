@@ -12,6 +12,84 @@
         "MQ1"
       ],
       "minmax": {}
+    },
+    "Galvin's (WA) · Ellenbrook": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X",
+        "MQ3",
+        "MB2",
+        "MWF-MX1-20",
+        "MR-05",
+        "MWF-S7",
+        "WH20-5SED",
+        "WH20-RES+",
+        "WH20-GAC KDF55",
+        "MWF20-5SPP",
+        "MWF10-5SPP",
+        "MU10-RES",
+        "MT-PC",
+        "MQ1"
+      ],
+      "minmax": {
+        "MQ1": [
+          1,
+          2
+        ],
+        "MQ3": [
+          1,
+          1
+        ],
+        "MB2": [
+          1,
+          1
+        ],
+        "MWF-MX1-20": [
+          1,
+          1
+        ],
+        "MR-05": [
+          1,
+          1
+        ],
+        "MU10-RES": [
+          1,
+          1
+        ],
+        "WH20-5SED": [
+          1,
+          1
+        ],
+        "MWF10-5SPP": [
+          1,
+          1
+        ],
+        "MWF20-5SPP": [
+          5,
+          6
+        ],
+        "WH20-RES+": [
+          5,
+          7
+        ],
+        "WH303A/X": [
+          2,
+          10
+        ],
+        "MWF-S7": [
+          2,
+          4
+        ],
+        "WH20-GAC KDF55": [
+          1,
+          1
+        ],
+        "MT-PC": [
+          1,
+          1
+        ]
+      }
     }
   }
 }
