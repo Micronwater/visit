@@ -649,7 +649,10 @@ function drawBranchCard(){
       c.appendChild(w);
     }
   }
-  const sb=E("button","btn sm","Save branch setup"); sb.type="button"; sb.onclick=saveSetup;
+  /* "Update" once a branch has a setup, so a rep can see whether they are creating or
+     changing before they press it. */
+  const sb=E("button","btn sm", have ? "Update branch setup" : "Save branch setup");
+  sb.type="button"; sb.onclick=saveSetup;
   c.appendChild(sb);
   /* Never leave a rep guessing whether their setup reached anyone else. There is no
      quiet state: if this branch has a bay at all, the card says which of the three it
@@ -664,8 +667,8 @@ function drawBranchCard(){
       w.innerHTML = "<b>Shared with everyone.</b> Published "+shortDate(rec.pub)+
         ". Any device that opens this branch gets this bay and these numbers.";
     else
-      w.innerHTML = "<b>On this phone only.</b> Tap <b>Save branch setup</b> to share it "+
-        "with everyone — until you do, nobody else sees it.";
+      w.innerHTML = "<b>On this phone only.</b> Tap <b>"+(have?"Update":"Save")+" branch setup</b> "+
+        "to share it with everyone — until you do, nobody else sees it.";
     c.appendChild(w);
     const np=pendingCount();
     if(np>1 || (np===1 && !waiting)){
@@ -679,6 +682,10 @@ function drawBranchCard(){
 
 /* Saves the bay and the MIN/MAX against the branch on their own, without a visit —
    so a setup round can be done before anyone counts a single unit. */
+/* One deliberate moment, not a stream of them. A rep setting MIN to 4, thinking again and
+   setting it to 6 should not send 4 to the whole country on the way past. Nothing leaves
+   this phone until the button is pressed — and the branch card says which side of that
+   line the branch is currently on, every time. */
 function saveSetup(){
   const n=S.f.branch;
   if(!n){ flash("Pick a branch first"); return; }
@@ -699,7 +706,7 @@ function saveSetup(){
     flash("Setup saved for "+n+" — publishing…");
     publishOne(k, store[k])
       .then(()=>{ const q=readQ(); delete q[k]; writeQ(q); stampPublished(k);
-        flash("Published — every device gets this next time they open it");
+        flash("Shared with everyone — every device gets this next time they open it");
         drawBranchCard(); })
       .catch(()=>{ const q=readQ(); q[k]=store[k]; writeQ(q);
         flash("Saved on this phone. No signal — it publishes itself next time you open with signal");
