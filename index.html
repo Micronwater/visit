@@ -354,14 +354,14 @@ const curKey = () => keyOf(S.f.customer, S.f.branch);
 const splitKey = k => { const i = k.indexOf(KEYSEP);
   return i < 0 ? {c: "", b: k} : {c: k.slice(0, i), b: k.slice(i + KEYSEP.length)}; };
 
-/* ── Pre-loaded branch setup ───────────────────────────────────────────────
-   Empty in a fresh file. Export the setup from a phone that has the branches
-   built (Export setup, in section 6), send it back, and it gets baked in here —
-   then every rep who opens this file for the first time already has each
-   branch's bay and MIN/MAX, with nothing to set up and nothing to import.
-   Shape: { "Perth": { tier:"Tier 1", storeno:"", bay:["MT-05",...],
-                       minmax:{ "MT-05":[2,6], ... } }, ... }                  */
-const SEED = {};
+/* ── Published branch setups ───────────────────────────────────────────────
+   Loaded at boot from setups.json beside this file, so every device opens with the
+   same bay and MIN/MAX for every branch. Keyed exactly like the local store:
+     { "Galvin's (WA) \u00b7 Perth": { tier, storeno, bay:[codes], minmax:{code:[min,max]} } }
+   Weakest of the three sources — what a rep saved on this phone, and what the last
+   visit counted, both still win. To publish a setup: a rep taps Export setup, the
+   file is merged into setups.json, and it is committed. */
+let SEED = {};
 
 let S = NEW(), BRANCHES = [];
 
@@ -1156,6 +1156,27 @@ async function save(){
 try{ const r=localStorage.getItem(LS); if(r){ const p=JSON.parse(r); if(p&&p.v===2) S={...NEW(),...p}; } }catch(e){}
 loadBranches();
 draw();
+
+/* Published setups, fetched beside this file. Best-effort by design: offline, or a
+   missing or malformed file, must leave the page working exactly as it did before —
+   the card promises it works without signal. */
+(function loadPublishedSetups(){
+  fetch("setups.json?v=" + Date.now(), {cache:"no-store"})
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if(!d || d.kind !== "micron-branch-setup" || !d.branches) return;
+      const n = Object.keys(d.branches).length;
+      if(!n) return;
+      SEED = d.branches;
+      /* a branch already open when this lands should pick it up */
+      if(S.f.branch) loadBranch(); else { loadBranches(); draw(); }
+      const el = document.getElementById("sync");
+      if(el) el.textContent = n + " published branch setup" + (n===1?"":"s") +
+        " loaded" + (d.updated ? " (" + d.updated + ")" : "") +
+        ". Anything you have saved on this phone still wins.";
+    })
+    .catch(()=>{});   /* offline is normal, not an error */
+})();
 (function(){
   const el=document.getElementById("sync");
   const n=BRANCHES.filter(b=>b.lastVisit).length;
