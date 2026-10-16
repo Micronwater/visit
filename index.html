@@ -180,6 +180,11 @@ h2 b{color:var(--blue);font-weight:800}
 
 /* branch card */
 .bcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin-bottom:14px}
+.rsm{background:#FDF0E1;border:1px solid #E8C89A;border-radius:12px;padding:11px 13px;margin-bottom:14px;
+     display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px;line-height:1.4}
+.rsm b{color:inherit}
+.rsm .x{margin-left:auto;background:none;border:0;font-size:20px;line-height:1;color:var(--ink3);
+        padding:0 2px;cursor:pointer}
 .bcard.none{border-style:dashed;background:none}
 .bcard h3{margin:0 0 7px;font-family:Montserrat;font-weight:800;font-size:11px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ink3)}
@@ -253,6 +258,7 @@ pre{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:
 </header>
 
 <main class="w">
+  <div id="resume"></div>
   <div class="setup" id="setup"></div>
   <div id="bcard"></div>
 
@@ -470,7 +476,17 @@ const readStore = () => { try{
   return r.store;
 }catch(e){ return {}; } };
 const writeStore = o => { try{ localStorage.setItem(LSB, JSON.stringify(o)); return true; }catch(e){ return false; } };
-const persist=()=>{ try{ localStorage.setItem(LS, JSON.stringify({...S, edit:false, q:""})); }catch(e){} };
+const LSPREV="micron.visit.prev";
+/* `at` is what lets boot tell a visit in progress from one finished days ago. */
+const persist=()=>{ try{ localStorage.setItem(LS, JSON.stringify({...S, edit:false, q:"", at:Date.now()})); }catch(e){} };
+
+/* Anything a rep would be upset to lose. Picking a branch is not work; counting is. */
+function hasWork(d){
+  if(!d) return false;
+  const counted = Object.values(d.stock||{}).some(o=>o && o.cur!==null && o.cur!==undefined);
+  const ticked  = Object.keys(d.t||{}).some(k=>d.t[k]);
+  return counted || ticked || (d.actions||[]).length>0;
+}
 const E=(t,c,h)=>{const e=document.createElement(t); if(c)e.className=c; if(h!==undefined)e.innerHTML=h; return e;};
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const shortDate = s => { const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(s||""); 
@@ -1249,7 +1265,30 @@ function restore(){
     rd.readAsText(f); };
   i.click();
 }
-function newVisit(){ if(confirm("Start a new visit? Save this one first if you need it.")){ S=NEW(); persist(); draw(); } }
+function newVisit(){ if(confirm("Start a new visit? Save this one first if you need it.")){ S=NEW(); persist(); draw(); drawResume(); } }
+
+/* One line, only when there is genuinely unsaved work to come back to. */
+function drawResume(){
+  const host=document.getElementById("resume"); if(!host) return;
+  host.innerHTML="";
+  if(!PREV) return;
+  const n = Object.values(PREV.stock||{}).filter(o=>o && o.cur!==null && o.cur!==undefined).length;
+  const who = (PREV.f&&PREV.f.branch) ? ((PREV.f.customer? PREV.f.customer+" · ":"")+PREV.f.branch) : "a visit";
+  const when = PREV.at ? shortDate(new Date(PREV.at).toISOString()) : "";
+  const d=E("div","rsm");
+  d.innerHTML = "<span><b>Unfinished visit</b> — "+who+(n?", "+n+" line"+(n===1?"":"s")+" counted":"")+
+                (when?" · "+when:"")+"</span>";
+  const go=E("button","btn sm","Bring it back"); go.type="button";
+  go.onclick=()=>{ S={...NEW(), ...PREV}; delete S.saved; PREV=null;
+    try{ localStorage.removeItem(LSPREV); }catch(e){}
+    persist(); draw(); drawResume(); flash("Picked up where you left off"); };
+  d.appendChild(go);
+  const x=E("button","x","\u00d7"); x.type="button";
+  x.setAttribute("aria-label","Dismiss the unfinished visit");
+  x.onclick=()=>{ PREV=null; try{ localStorage.removeItem(LSPREV); }catch(e){} drawResume(); };
+  d.appendChild(x);
+  host.appendChild(d);
+}
 
 /* ── chrome ───────────────────────────────────────────────── */
 function chrome(){
@@ -1313,6 +1352,9 @@ async function save(){
 
   loadBranches(); drawSetup();
   if(ok){
+    /* The visit is posted. Leave it on screen so the report can still be copied, but mark
+       it finished so the next open starts clean instead of resuming it. */
+    S.saved = true; persist();
     flash("Saved");
     el.textContent="Saved on this phone. Next visit to "+rec.branch+" loads these MIN/MAX numbers back in and recalculates them from what sold. Use Backup before changing phones.";
   } else {
@@ -1321,10 +1363,28 @@ async function save(){
   }
 }
 
-/* ── boot ─────────────────────────────────────────────────── */
-try{ const r=localStorage.getItem(LS); if(r){ const p=JSON.parse(r); if(p&&p.v===2){ S={...NEW(),...p}; S.t=migrateTicks(S.t)||{}; } } }catch(e){}
+/* ── boot ───────────────────────────────────────────────────
+   The app opens on a clean visit, every time. A draft with unsaved work in it is not
+   resumed and not destroyed — it is set aside and offered back in one tap. */
+let PREV = null;
+try{
+  const r = localStorage.getItem(LS);
+  if(r){
+    const p = JSON.parse(r);
+    if(p && p.v === 2){
+      p.t = migrateTicks(p.t) || {};
+      if(hasWork(p) && !p.saved){
+        PREV = p;
+        try{ localStorage.setItem(LSPREV, JSON.stringify(p)); }catch(e){}
+      }
+    }
+  }
+}catch(e){}
+S = NEW();
+persist();
 loadBranches();
 draw();
+drawResume();
 
 /* Published setups, fetched beside this file. Best-effort by design: offline, or a
    missing or malformed file, must leave the page working exactly as it did before —
