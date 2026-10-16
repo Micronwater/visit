@@ -541,11 +541,22 @@ function defaults(){
     if(o && o.d && !inBay.has(k) && (o.cur===null||o.cur===undefined)) delete S.stock[k]; });
 }
 
+/* Lines with one number and not the other. These are the dangerous ones: they look set up,
+   and they can never put a unit on an order. */
+function halfSet(list){
+  return (list||bay()).filter(r=>{ const o=st(r.s); const mn=+o.min||0, mx=+o.max||0;
+    return (mn>0) !== (mx>0); }).map(r=>r.s);
+}
+
 /* four-band reorder logic — identical to the system document */
 function band(o){
   const c=o.cur, mn=+o.min||0, mx=+o.max||0;
   if(c===null||c===undefined||c==="") return {k:"",l:"",q:0};
   if(!mn && !mx) return {k:"n",l:"NO MIN/MAX",q:0};   /* off-range line, counted but no reorder point yet */
+  /* Half a pair cannot produce an order: MAX − current is the whole quantity, and a missing
+     MIN is a trigger that never fires. Saying so beats a confident band with a zero on it. */
+  if(!mx) return {k:"n",l:"NO MAX",q:0};
+  if(!mn) return {k:"n",l:"NO MIN",q:0};
   if(c===0 || (mn>0 && c<=mn/2)) return {k:"c",l:"CRITICAL",q:Math.max(0,mx-c)};
   if(mn>0 && c<=mn)             return {k:"o",l:"ORDER",   q:Math.max(0,mx-c)};
   if(mx>0 && c>=mx)             return {k:"v",l:"OVER",    q:0};
@@ -655,6 +666,7 @@ function drawBranchCard(){
       "this store carries, set MIN and MAX on each, then tap <b>Save branch setup</b>. Next time you open "+
       n+" it all comes straight back."));
   } else {
+    const half=halfSet(list);
     const kv=E("div","kv");
     kv.innerHTML =
       `<span>Bay <b>${list.length} SKUs</b> ${custom()?"set for this branch":"(not set up yet)"}</span>`+
@@ -673,6 +685,17 @@ function drawBranchCard(){
   }
   /* "Update" once a branch has a setup, so a rep can see whether they are creating or
      changing before they press it. */
+  /* Named, not just counted — a rep cannot fix what they cannot find. */
+  if(have){
+    const half=halfSet(list);
+    if(half.length){
+      const w=E("div","was"); w.style.cssText="color:var(--crit)";
+      w.innerHTML = "<b>"+half.length+" line"+(half.length===1?"":"s")+" half done.</b> "+
+        "A MIN without a MAX can never order \u2014 the line goes red and asks for nothing. "+
+        "Set the missing number on: <b>"+half.join(", ")+"</b>";
+      c.appendChild(w);
+    }
+  }
   const sb=E("button","btn sm", have ? "Update branch setup" : "Save branch setup");
   sb.type="button"; sb.onclick=saveSetup;
   c.appendChild(sb);
@@ -712,6 +735,12 @@ function saveSetup(){
   const n=S.f.branch;
   if(!n){ flash("Pick a branch first"); return; }
   if(!S.f.customer){ flash("Pick the customer first — the setup is saved against it"); return; }
+  /* Ask before a half-finished pair goes to every device. OK still saves: a rep part-way
+     through a setup in a store must never lose what they have typed. */
+  const half=halfSet();
+  if(half.length && !confirm(half.length+" line"+(half.length===1?"":"s")+" have a MIN but no MAX"+
+      " (or the other way round):\n\n"+half.join(", ")+
+      "\n\nThose lines will show red and order nothing. Share it anyway?")) return;
   const k=curKey();
   const minmax={};
   bay().forEach(r=>{ const o=st(r.s); if(+o.min>0||+o.max>0) minmax[r.s]=[o.min,o.max]; });
@@ -894,7 +923,18 @@ function drawStock(){
   const eb=E("button","edb"+(S.edit?" on":""), S.edit?"DONE":"EDIT BAY"); eb.type="button";
   eb.onclick=()=>{
     if(!S.edit && !(S.f.customer && S.f.branch)){ flash("Pick the customer and branch first — the bay is saved against them"); return; }
-    S.edit=!S.edit; if(!S.edit) saveBay(); persist(); draw();
+    S.edit=!S.edit;
+    if(!S.edit){
+      saveBay();
+      /* The card has said this since yesterday and it was still missed. Say it at the
+         moment the rep finishes, where the attention already is. */
+      if(SYNC.url && S.f.customer && S.f.branch){
+        const rec=BRANCHES.find(x=>x.key===curKey())||{};
+        if(!rec.pub) flash("Bay saved on this phone — tap "+(bayCodes().length?"Update":"Save")+
+                           " branch setup to share it");
+      }
+    }
+    persist(); draw();
   };
   bh.appendChild(eb); host.appendChild(bh);
 
