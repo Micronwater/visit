@@ -458,6 +458,14 @@
           0
         ]
       }
+    },
+    "Galvin's (WA) · Spearwood": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X"
+      ],
+      "minmax": {}
     }
   }
 }
