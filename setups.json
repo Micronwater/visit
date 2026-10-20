@@ -508,6 +508,19 @@
           3
         ]
       }
+    },
+    "Galvin's (WA) · Port Headland": {
+      "tier": "Tier 1",
+      "storeno": "",
+      "bay": [
+        "WH303A/X"
+      ],
+      "minmax": {
+        "WH303A/X": [
+          1,
+          0
+        ]
+      }
     }
   }
 }
