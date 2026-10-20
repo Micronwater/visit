@@ -1,7 +1,7 @@
 {
   "v": 1,
   "kind": "micron-branch-setup",
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "note": "Published branch setups, read by the visit app at micronwater.github.io/visit on every device. Keyed 'Customer · Branch'. A rep taps Export setup, the file comes back, the branches below are merged, and this is committed. Weakest of the three sources: what a rep saved on their own phone, and what their last visit counted, both still win. Empty until the pilot produces a setup tested against a real bay.",
   "branches": {
     "Galvin's (WA) · Perth": {
@@ -366,6 +366,33 @@
           2
         ]
       }
+    },
+    "Galvin's (WA) · Busselton": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X",
+        "MWF20-RES",
+        "MWF20-GAC KDF55",
+        "MWF20-5SPP",
+        "WH302A",
+        "MQ2",
+        "MT-PC",
+        "MT-33",
+        "MT-05",
+        "MWF-S7",
+        "S7-1",
+        "S7-Adapter",
+        "WH20-5SED",
+        "MU10-GAC",
+        "MU10-PHOS",
+        "MU10-05",
+        "WH20-GAC KDF55",
+        "WH20-RES+",
+        "WH302",
+        "MWF-MX1-15"
+      ],
+      "minmax": {}
     }
   }
 }
