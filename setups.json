@@ -513,12 +513,87 @@
       "tier": "Tier 1",
       "storeno": "",
       "bay": [
-        "WH303A/X"
+        "MB1",
+        "MB2",
+        "WH303A/X",
+        "MWF-MX1-15",
+        "MU10-CTO-UD",
+        "MU10-PHOS",
+        "MWF10-5SPP",
+        "MWF10-CTO",
+        "MWF10-T33GAC",
+        "MWF20-CTO",
+        "MWF20-PHOS",
+        "MX-PC",
+        "MWF20-1SPP",
+        "MU10-01G",
+        "MB-PC",
+        "MB-PCA"
       ],
       "minmax": {
+        "MB1": [
+          1,
+          1
+        ],
+        "MB-PC": [
+          1,
+          0
+        ],
+        "MB2": [
+          1,
+          1
+        ],
+        "MX-PC": [
+          1,
+          0
+        ],
+        "MU10-CTO-UD": [
+          1,
+          0
+        ],
+        "MU10-PHOS": [
+          2,
+          10
+        ],
+        "MWF10-5SPP": [
+          1,
+          0
+        ],
+        "MWF20-CTO": [
+          1,
+          0
+        ],
+        "MWF20-PHOS": [
+          1,
+          0
+        ],
         "WH303A/X": [
           1,
           1
+        ],
+        "MWF-MX1-15": [
+          1,
+          1
+        ],
+        "MWF10-CTO": [
+          1,
+          2
+        ],
+        "MWF10-T33GAC": [
+          1,
+          0
+        ],
+        "MWF20-1SPP": [
+          1,
+          0
+        ],
+        "MU10-01G": [
+          1,
+          0
+        ],
+        "MB-PCA": [
+          1,
+          0
         ]
       }
     }
