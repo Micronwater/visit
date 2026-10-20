@@ -466,6 +466,19 @@
         "WH303A/X"
       ],
       "minmax": {}
+    },
+    "Galvin's (WA) · Nedlands": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X"
+      ],
+      "minmax": {
+        "WH303A/X": [
+          1,
+          3
+        ]
+      }
     }
   }
 }
