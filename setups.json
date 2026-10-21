@@ -743,6 +743,43 @@
           0
         ]
       }
+    },
+    "Ballarat Plumb Pro (VIC) · Ballarat": {
+      "tier": "Tier 3",
+      "storeno": "",
+      "bay": [
+        "MWF-S7",
+        "S7-1",
+        "S7-Adapter",
+        "MWF-WH101",
+        "MWF-WH102",
+        "WH302",
+        "WH302A",
+        "WH303",
+        "WH303A",
+        "MB1",
+        "RO-MR3",
+        "MR-ROU-801BW",
+        "MRS-ROU-301B",
+        "MB-PC",
+        "MU10-5SPL",
+        "MU10-CTO-UD",
+        "MU10-GAC",
+        "MU10-PHOS",
+        "MWF10-5SPL",
+        "MWF10-5SPP",
+        "MWF10-CTO",
+        "MWF10-T33GAC",
+        "MWF20-5SPL",
+        "MWF20-5SPP",
+        "MWF20-CTO",
+        "WH20-5SED",
+        "WH20-CTO",
+        "WH20-GAC",
+        "WH20-GAC KDF55",
+        "WH20-PFAS"
+      ],
+      "minmax": {}
     }
   }
 }
