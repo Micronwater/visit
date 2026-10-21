@@ -751,7 +751,6 @@
         "MWF-S7",
         "S7-1",
         "S7-Adapter",
-        "MWF-WH101",
         "MWF-WH102",
         "WH302",
         "WH302A",
@@ -777,9 +776,23 @@
         "WH20-CTO",
         "WH20-GAC",
         "WH20-GAC KDF55",
-        "WH20-PFAS"
+        "WH20-PFAS",
+        "MWF-WH101"
       ],
-      "minmax": {}
+      "minmax": {
+        "MB1": [
+          3,
+          5
+        ],
+        "MB-PC": [
+          2,
+          5
+        ],
+        "RO-MR3": [
+          1,
+          2
+        ]
+      }
     }
   }
 }
