@@ -1,7 +1,7 @@
 {
   "v": 1,
   "kind": "micron-branch-setup",
-  "updated": "2026-10-21",
+  "updated": "2026-10-27",
   "note": "Published branch setups, read by the visit app at micronwater.github.io/visit on every device. Keyed 'Customer · Branch'. A rep taps Export setup, the file comes back, the branches below are merged, and this is committed. Weakest of the three sources: what a rep saved on their own phone, and what their last visit counted, both still win. Empty until the pilot produces a setup tested against a real bay.",
   "branches": {
     "Galvin's (WA) · Perth": {
@@ -9,9 +9,95 @@
       "storeno": "",
       "bay": [
         "WH303A/X",
-        "MQ1"
+        "MWF20-5SPP",
+        "MWF-S7",
+        "S7-Adapter",
+        "S7-1",
+        "MQ1",
+        "MQ3",
+        "MB1",
+        "MWF-MX1-20",
+        "MX-PC",
+        "MU10-GAC",
+        "MT-CTO",
+        "MT-05",
+        "MT-PC",
+        "WH20-5SED",
+        "WH20-RES+",
+        "WH20-GAC KDF55",
+        "WH20-PFAS",
+        "WH20-GAC"
       ],
-      "minmax": {}
+      "minmax": {
+        "MQ1": [
+          1,
+          0
+        ],
+        "MT-05": [
+          1,
+          0
+        ],
+        "MT-CTO": [
+          1,
+          0
+        ],
+        "MQ3": [
+          1,
+          0
+        ],
+        "MB1": [
+          1,
+          0
+        ],
+        "MWF-MX1-20": [
+          1,
+          0
+        ],
+        "MX-PC": [
+          1,
+          0
+        ],
+        "MU10-GAC": [
+          1,
+          0
+        ],
+        "WH20-5SED": [
+          1,
+          0
+        ],
+        "MWF20-5SPP": [
+          2,
+          0
+        ],
+        "WH20-RES+": [
+          1,
+          0
+        ],
+        "WH303A/X": [
+          2,
+          4
+        ],
+        "MWF-S7": [
+          1,
+          0
+        ],
+        "S7-1": [
+          1,
+          0
+        ],
+        "S7-Adapter": [
+          1,
+          0
+        ],
+        "MT-PC": [
+          1,
+          0
+        ],
+        "WH20-GAC KDF55": [
+          1,
+          0
+        ]
+      }
     },
     "Galvin's (WA) · Ellenbrook": {
       "tier": "Tier 2",
