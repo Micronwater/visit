@@ -1,7 +1,7 @@
 {
   "v": 1,
   "kind": "micron-branch-setup",
-  "updated": "2026-10-27",
+  "updated": "2026-10-29",
   "note": "Published branch setups, read by the visit app at micronwater.github.io/visit on every device. Keyed 'Customer · Branch'. A rep taps Export setup, the file comes back, the branches below are merged, and this is committed. Weakest of the three sources: what a rep saved on their own phone, and what their last visit counted, both still win. Empty until the pilot produces a setup tested against a real bay.",
   "branches": {
     "Galvin's (WA) · Perth": {
@@ -1102,6 +1102,89 @@
         "MT-RO50": [
           1,
           0
+        ]
+      }
+    },
+    "Bentons (VIC) · Hoppers Crossing": {
+      "tier": "Tier 3",
+      "storeno": "",
+      "bay": [
+        "WH303A/X",
+        "WH302",
+        "MWF-MX1-15",
+        "MB1",
+        "MQ1",
+        "RO-MR3",
+        "MWF-WH101",
+        "MWF-S7",
+        "MX-PC",
+        "MWF20-CTO",
+        "MWF20-5SPP",
+        "MWF20-T33GAC",
+        "WH20-5SED",
+        "WH20-PFAS",
+        "MWF10-5SPP"
+      ],
+      "minmax": {
+        "MQ1": [
+          1,
+          1
+        ],
+        "MB1": [
+          1,
+          1
+        ],
+        "MX-PC": [
+          1,
+          3
+        ],
+        "RO-MR3": [
+          1,
+          1
+        ],
+        "WH20-5SED": [
+          1,
+          2
+        ],
+        "MWF10-5SPP": [
+          1,
+          1
+        ],
+        "MWF20-5SPP": [
+          1,
+          3
+        ],
+        "MWF20-CTO": [
+          1,
+          3
+        ],
+        "WH302": [
+          1,
+          3
+        ],
+        "WH20-PFAS": [
+          1,
+          2
+        ],
+        "WH303A/X": [
+          3,
+          5
+        ],
+        "MWF-S7": [
+          5,
+          10
+        ],
+        "MWF-MX1-15": [
+          1,
+          2
+        ],
+        "MWF-WH101": [
+          1,
+          1
+        ],
+        "MWF20-T33GAC": [
+          1,
+          1
         ]
       }
     }
