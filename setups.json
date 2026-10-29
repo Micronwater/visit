@@ -1187,6 +1187,14 @@
           1
         ]
       }
+    },
+    "Galvin's (WA) · Karratha": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X"
+      ],
+      "minmax": {}
     }
   }
 }
