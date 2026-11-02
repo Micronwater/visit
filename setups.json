@@ -1236,7 +1236,22 @@
       "tier": "Tier 3",
       "storeno": "",
       "bay": [
-        "WH303A/X"
+        "MWF-WH101",
+        "MWF-WH103",
+        "MQ1 (3/8\")",
+        "MQ3",
+        "MB3",
+        "MT-05",
+        "MT-33",
+        "MT-CTO",
+        "MWF10-5SPP",
+        "MWF10-CTO",
+        "MWF20-5SPP",
+        "MWF20-CTO",
+        "MWF20-T33GAC",
+        "MWF20-GAC KDF55",
+        "MWF-S7",
+        "S7-1"
       ],
       "minmax": {}
     }
