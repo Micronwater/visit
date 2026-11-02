@@ -1259,7 +1259,29 @@
       "tier": "Tier 2",
       "storeno": "",
       "bay": [
-        "WH303A/X"
+        "WH303A/X",
+        "MWF-WH101",
+        "MQ1 (3/8\")",
+        "MQ3 (3/8)",
+        "MB1",
+        "MB2",
+        "MB3",
+        "MT-05",
+        "MT-33",
+        "MT-34",
+        "MT-PC",
+        "MU10-05",
+        "MWF10-CTO",
+        "MWF10-5SPP",
+        "MWF20-RES",
+        "MWF20-GAC KDF55",
+        "MWF20-CTO",
+        "MWF20-5SPP",
+        "WH20-GAC KDF55",
+        "WH20-5SED",
+        "WH20-RES+",
+        "MWF-S7",
+        "S7-Adapter"
       ],
       "minmax": {}
     }
