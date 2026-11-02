@@ -1254,6 +1254,14 @@
         "S7-1"
       ],
       "minmax": {}
+    },
+    "Galvin's (WA) · Willetton": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X"
+      ],
+      "minmax": {}
     }
   }
 }
