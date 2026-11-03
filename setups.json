@@ -1292,6 +1292,21 @@
         "MWF-S7"
       ],
       "minmax": {}
+    },
+    "Galvin's (WA) · Geraldton": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X",
+        "MQ1 (3/8\")",
+        "RO-MR5",
+        "MT-PC",
+        "MT-33",
+        "MWF20-RES",
+        "MWF20-GAC KDF55",
+        "MWF20-5SPP"
+      ],
+      "minmax": {}
     }
   }
 }
