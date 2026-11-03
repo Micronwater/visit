@@ -1255,6 +1255,43 @@
         "S7-Adapter"
       ],
       "minmax": {}
+    },
+    "Galvin's (WA) · Bunbury": {
+      "tier": "Tier 2",
+      "storeno": "",
+      "bay": [
+        "WH303A/X",
+        "WH302",
+        "MWF-WH102",
+        "MQ1 (3/8\")",
+        "MQ3",
+        "MWF-MX1-15",
+        "MWF-MX1-20",
+        "MT-33",
+        "MT-05",
+        "MT-CTO",
+        "MX-PC",
+        "MU10-05",
+        "MU10-GAC",
+        "MU10-CTO-UD",
+        "MU10-PHOS",
+        "MU10-RES",
+        "MU10-05G",
+        "MWF10-5SPP",
+        "MWF10-CTO",
+        "MWF10-T33GAC",
+        "MWF20-5SPP",
+        "MWF20-CTO",
+        "MWF20-RES",
+        "MWF20-T33GAC",
+        "MWF20-GAC KDF55",
+        "WH20-5SED",
+        "MWF20S-5SPL",
+        "WH20-RES+",
+        "WH20-GAC KDF55",
+        "MWF-S7"
+      ],
+      "minmax": {}
     }
   }
 }
