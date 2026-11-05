@@ -1,7 +1,7 @@
 {
   "v": 1,
   "kind": "micron-branch-setup",
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "note": "Published branch setups, read by the visit app at micronwater.github.io/visit on every device. Keyed 'Customer · Branch'. A rep taps Export setup, the file comes back, the branches below are merged, and this is committed. Weakest of the three sources: what a rep saved on their own phone, and what their last visit counted, both still win. Empty until the pilot produces a setup tested against a real bay.",
   "branches": {
     "Galvin's (WA) · Perth": {
@@ -1307,6 +1307,209 @@
         "MWF20-5SPP"
       ],
       "minmax": {}
+    },
+    "Galvin's (WA) · Osborne Park": {
+      "tier": "Tier 3",
+      "storeno": "",
+      "bay": [
+        "WH303A/X",
+        "MWF20-5SPP",
+        "MWF20-RES",
+        "MWF20-GAC KDF55",
+        "WH20-5SED",
+        "WH20-GAC KDF55",
+        "WH20-RES+",
+        "MQ1",
+        "MT-05",
+        "MX-PC",
+        "MWF-MX1-15",
+        "MQ2 (3/8)",
+        "MB1",
+        "MWF-MX1-20",
+        "MQ3",
+        "MT-CTO",
+        "MT-33",
+        "MT-PC",
+        "MWF-WH101",
+        "MWF-WH102",
+        "MWF10-5SPP",
+        "MWF10-CTO",
+        "MWF10-T33GAC",
+        "MWF20-1SPP",
+        "MU10-GAC",
+        "MU10-05G",
+        "MU10-CTO-UD",
+        "MU10-5SPL",
+        "MB2",
+        "MB-05",
+        "MB-33",
+        "MB-CTO",
+        "MB-PC",
+        "MWF-S7",
+        "S7-1",
+        "MU10-PHOS",
+        "MU10-05",
+        "S7-Adapter",
+        "MWF20-CTO"
+      ],
+      "minmax": {
+        "MQ1": [
+          7,
+          12
+        ],
+        "MT-05": [
+          7,
+          11
+        ],
+        "MT-33": [
+          5,
+          8
+        ],
+        "MT-CTO": [
+          4,
+          5
+        ],
+        "MQ3": [
+          3,
+          0
+        ],
+        "MB-05": [
+          1,
+          0
+        ],
+        "MB-CTO": [
+          1,
+          0
+        ],
+        "MB1": [
+          3,
+          0
+        ],
+        "MB-33": [
+          1,
+          0
+        ],
+        "MB-PC": [
+          1,
+          0
+        ],
+        "MB2": [
+          3,
+          0
+        ],
+        "MWF-MX1-20": [
+          1,
+          0
+        ],
+        "MX-PC": [
+          5,
+          6
+        ],
+        "MU10-05": [
+          5,
+          8
+        ],
+        "MU10-CTO-UD": [
+          3,
+          8
+        ],
+        "MU10-GAC": [
+          3,
+          8
+        ],
+        "MWF-WH102": [
+          1,
+          0
+        ],
+        "MU10-PHOS": [
+          13,
+          30
+        ],
+        "WH20-5SED": [
+          4,
+          6
+        ],
+        "MWF10-5SPP": [
+          4,
+          6
+        ],
+        "MWF20-5SPP": [
+          58,
+          116
+        ],
+        "MWF20-CTO": [
+          1,
+          3
+        ],
+        "MWF20-RES": [
+          47,
+          93
+        ],
+        "WH20-RES+": [
+          6,
+          12
+        ],
+        "WH303A/X": [
+          15,
+          30
+        ],
+        "MWF-S7": [
+          10,
+          19
+        ],
+        "S7-1": [
+          2,
+          6
+        ],
+        "MWF20-GAC KDF55": [
+          43,
+          84
+        ],
+        "WH20-GAC KDF55": [
+          6,
+          12
+        ],
+        "MWF-MX1-15": [
+          4,
+          7
+        ],
+        "MQ2 (3/8)": [
+          1,
+          3
+        ],
+        "MT-PC": [
+          5,
+          10
+        ],
+        "MWF-WH101": [
+          2,
+          0
+        ],
+        "MWF10-CTO": [
+          3,
+          8
+        ],
+        "MWF10-T33GAC": [
+          1,
+          0
+        ],
+        "MWF20-1SPP": [
+          5,
+          8
+        ],
+        "MU10-05G": [
+          3,
+          3
+        ],
+        "MU10-5SPL": [
+          3,
+          0
+        ],
+        "S7-Adapter": [
+          4,
+          7
+        ]
+      }
     }
   }
 }
