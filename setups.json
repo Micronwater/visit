@@ -1867,6 +1867,29 @@
           4
         ]
       }
+    },
+    "Harris (VIC) · Dandenong": {
+      "tier": "Tier 3",
+      "storeno": "",
+      "bay": [
+        "WH303A",
+        "WH303",
+        "WH302",
+        "MQ1",
+        "MQ2",
+        "MQ3",
+        "MWF-MX1-15",
+        "WH20-5SED",
+        "WH20-RES+",
+        "WH20-GAC",
+        "MWF-S7",
+        "MT-05",
+        "MT-33",
+        "MT-CTO",
+        "MR-R050",
+        "MX-PC"
+      ],
+      "minmax": {}
     }
   }
 }
